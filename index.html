@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
-
 <style>
-/* ====== RESET ====== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -25,8 +23,6 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 [hidden] { display: none !important; }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
 ul, ol { list-style: none; }
-
-/* ====== THEME TOKENS ====== */
 :root {
   --bg:#070b14; --bg2:#0d1424; --bg3:#111827;
   --card:rgba(255,255,255,.05); --card2:rgba(255,255,255,.07); --card-hover:rgba(255,255,255,.10);
@@ -49,12 +45,8 @@ ul, ol { list-style: none; }
   --danger:#dc2626; --danger-soft:rgba(220,38,38,.12);
   --shadow-sm:0 2px 8px rgba(16,24,40,.08); --shadow-md:0 8px 32px rgba(16,24,40,.10); --shadow-lg:0 20px 60px rgba(16,24,40,.14);
 }
-
-/* ====== A11Y ====== */
 .skip { position:absolute; left:-999px; top:12px; background:var(--card); color:var(--text); padding:10px 16px; border-radius:var(--radius-sm); border:1px solid var(--border); z-index:9999; }
 .skip:focus { left:12px; }
-
-/* ====== LAYOUT ====== */
 .container { width:min(1140px, calc(100% - 40px)); margin:0 auto; }
 .section { padding:80px 0; }
 .section__head { display:grid; gap:8px; margin-bottom:32px; }
@@ -63,12 +55,8 @@ ul, ol { list-style: none; }
 .grid { display:grid; gap:16px; }
 .grid--3 { grid-template-columns:repeat(3,1fr); }
 @media(max-width:920px){ .grid--3{ grid-template-columns:1fr; } }
-
-/* ====== SCROLL ANIMATIONS ====== */
 .anim { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
 .anim.is-visible { opacity:1; transform:translateY(0); }
-
-/* ====== CARDS ====== */
 .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-sm); transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
 .card:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--primary-border); }
 .card--soft { box-shadow:none; background:var(--card2); }
@@ -82,8 +70,6 @@ ul, ol { list-style: none; }
 .muted { color:var(--muted); }
 .tiny { color:var(--muted); font-size:12px; margin:12px 0 0; }
 .dot { opacity:.5; }
-
-/* ====== HEADER ====== */
 .header { position:sticky; top:0; z-index:100; background:color-mix(in srgb,var(--bg2) 85%,transparent); border-bottom:1px solid var(--border); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); }
 .header__inner { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; min-height:56px; }
 .brand { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; }
@@ -98,8 +84,6 @@ ul, ol { list-style: none; }
 .hide-sm { display:inline; }
 @media(max-width:960px){ .nav{ display:none; } .hide-sm{ display:none; } }
 @media(min-width:961px){ .burger{ display:none !important; } }
-
-/* ====== BUTTONS ====== */
 .btn { border:1px solid var(--border); background:var(--card); color:var(--text); border-radius:var(--radius-sm); padding:10px 18px; display:inline-flex; gap:8px; align-items:center; justify-content:center; font-size:14px; font-weight:600; transition:all var(--transition); white-space:nowrap; }
 .btn:hover { transform:translateY(-1px); box-shadow:var(--shadow-sm); }
 .btn:active { transform:translateY(0); }
@@ -110,27 +94,19 @@ ul, ol { list-style: none; }
 .btn--sm { padding:8px 14px; font-size:13px; }
 .btn--icon { padding:8px 12px; }
 .icon { font-size:15px; }
-
-/* ====== BURGER ====== */
 .burger { width:40px; height:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; border-radius:var(--radius-xs); border:1px solid var(--border); background:var(--card); transition:all var(--transition); }
 .burger span { display:block; width:18px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; }
 .burger.is-open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
 .burger.is-open span:nth-child(2){ opacity:0; }
 .burger.is-open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-/* ====== MOBILE NAV ====== */
 .mobile-nav { position:fixed; inset:56px 0 0 0; z-index:90; background:color-mix(in srgb,var(--bg) 96%,transparent); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); padding:24px; overflow-y:auto; animation:slideDown .25s ease; }
 @keyframes slideDown { from{ opacity:0; transform:translateY(-12px); } to{ opacity:1; transform:translateY(0); } }
 .mobile-nav__list { display:grid; gap:6px; }
 .mobile-nav__link { display:block; padding:14px 18px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--card); color:var(--text); font-weight:600; font-size:15px; transition:all var(--transition); }
 .mobile-nav__link:hover,.mobile-nav__link:active { background:var(--primary-soft); border-color:var(--primary-border); color:var(--primary); }
-
-/* ====== LANG ====== */
 .lang { border:1px solid var(--border); border-radius:var(--radius-xs); padding:3px; display:inline-flex; background:var(--card); }
 .lang__btn { border:0; background:transparent; color:var(--muted); padding:6px 10px; border-radius:6px; font-size:12px; font-weight:700; transition:all var(--transition); }
 .lang__btn.is-active { background:var(--primary-soft); color:var(--primary); }
-
-/* ====== HERO ====== */
 .hero { position:relative; padding:72px 0 40px; overflow:hidden; }
 .hero__inner { display:grid; grid-template-columns:1.3fr .7fr; gap:32px; align-items:start; }
 @media(max-width:920px){ .hero__inner{ grid-template-columns:1fr; } }
@@ -155,14 +131,10 @@ ul, ol { list-style: none; }
 .mini__title { font-weight:800; font-size:13px; margin-bottom:8px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
 .mini__list { padding-left:18px; color:var(--muted); font-size:13px; list-style:disc; }
 .mini__list li { margin:4px 0; }
-
-/* ====== CALLOUT ====== */
 .callout { margin-top:20px; display:grid; grid-template-columns:52px 1fr; gap:16px; padding:20px; border-radius:var(--radius); border:1px solid var(--primary-border); background:var(--primary-soft); }
 .callout__icon { width:52px; height:52px; display:grid; place-items:center; font-size:22px; border-radius:var(--radius-sm); background:var(--card); border:1px solid var(--border); }
 .callout h3 { font-size:15px; font-weight:800; margin-bottom:6px; }
 .callout p { color:var(--muted); font-size:14px; }
-
-/* ====== PLACES ====== */
 .places { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
 @media(max-width:920px){ .places{ grid-template-columns:1fr; } }
 .place { text-align:left; padding:20px; border-radius:var(--radius); border:1px solid var(--border); background:var(--card); cursor:pointer; transition:all var(--transition); position:relative; overflow:hidden; }
@@ -174,8 +146,6 @@ ul, ol { list-style: none; }
 .place__emoji { font-size:28px; margin-bottom:10px; position:relative; }
 .place__title { font-weight:800; margin-bottom:6px; font-size:15px; position:relative; }
 .place__text { color:var(--muted); font-size:13px; position:relative; }
-
-/* ====== TIMELINE ====== */
 .timeline { display:grid; gap:0; position:relative; }
 .timeline::before { content:''; position:absolute; left:69px; top:0; bottom:0; width:2px; background:var(--border); }
 @media(max-width:720px){ .timeline::before{ display:none; } }
@@ -187,8 +157,6 @@ ul, ol { list-style: none; }
 .titem__body p { color:var(--muted); font-size:14px; }
 .titem__bullets { margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px; list-style:disc; }
 .titem__bullets li { margin:4px 0; }
-
-/* ====== HISTORY TABS ====== */
 .history { display:grid; gap:16px; }
 .history__tabs { display:flex; gap:6px; flex-wrap:wrap; padding:6px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--card); }
 .tab { border:1px solid transparent; background:transparent; color:var(--muted); padding:9px 16px; border-radius:var(--radius-xs); font-size:13px; font-weight:600; transition:all var(--transition); }
@@ -204,8 +172,6 @@ ul, ol { list-style: none; }
 .hbox__grid strong { font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--primary); display:block; margin-bottom:8px; }
 .klist { padding-left:18px; color:var(--muted); font-size:14px; list-style:disc; }
 .klist li { margin:4px 0; }
-
-/* ====== EXPLORE ====== */
 .explore { display:grid; gap:16px; }
 .explore__controls { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:12px; }
 @media(max-width:920px){ .explore__controls{ grid-template-columns:1fr; } }
@@ -224,8 +190,6 @@ ul, ol { list-style: none; }
 .xcard__title { margin-bottom:4px; font-weight:800; font-size:15px; }
 .xcard__meta { color:var(--muted); font-size:12px; }
 .xcard__text { margin-top:8px; color:var(--muted); font-size:13px; }
-
-/* ====== TRAVEL / BUDGET ====== */
 .budget { display:grid; gap:18px; margin-top:20px; }
 .budget__head h3 { margin-bottom:6px; font-size:17px; font-weight:800; }
 .budget__head p { margin:0; font-size:13px; }
@@ -240,8 +204,6 @@ ul, ol { list-style: none; }
 .check__item { display:flex; gap:10px; align-items:center; padding:12px 14px; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--card); color:var(--muted); font-size:14px; cursor:pointer; transition:all var(--transition); }
 .check__item:hover { border-color:var(--primary-border); }
 .check__item input[type="checkbox"] { width:18px; height:18px; accent-color:var(--primary); cursor:pointer; }
-
-/* ====== GAME ====== */
 .game { display:grid; gap:14px; }
 .game__top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 .game__meta { color:var(--muted); display:flex; gap:10px; align-items:center; font-size:14px; font-weight:600; }
@@ -254,8 +216,6 @@ ul, ol { list-style: none; }
 .ganswer.is-correct { border-color:var(--success); background:var(--success-soft); color:var(--success); }
 .ganswer.is-wrong { border-color:var(--danger); background:var(--danger-soft); color:var(--danger); }
 .game__hint { color:var(--muted); font-size:14px; min-height:20px; }
-
-/* ====== QUIZ ====== */
 .quiz { display:grid; gap:14px; }
 .quiz__top { display:grid; gap:10px; }
 .quiz__progress { height:8px; background:var(--card); border-radius:999px; overflow:hidden; border:1px solid var(--border); }
@@ -270,8 +230,6 @@ ul, ol { list-style: none; }
 .answer.is-wrong { border-color:var(--danger); background:var(--danger-soft); color:var(--danger); }
 .quiz__bottom { display:flex; gap:8px; flex-wrap:wrap; }
 .quiz__hint { color:var(--muted); font-size:14px; min-height:20px; }
-
-/* ====== FAQ ====== */
 .accordion { display:grid; gap:8px; }
 .acc { border-radius:var(--radius); overflow:hidden; }
 .acc__btn { width:100%; text-align:left; padding:16px 20px; border-radius:var(--radius); border:1px solid var(--border); background:var(--card); display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:700; transition:all var(--transition); }
@@ -281,8 +239,6 @@ ul, ol { list-style: none; }
 .acc__panel p { margin:0; }
 .acc__icon { font-weight:900; font-size:18px; width:32px; height:32px; display:grid; place-items:center; border-radius:var(--radius-xs); background:var(--card); border:1px solid var(--border); flex-shrink:0; transition:transform .25s ease; }
 .acc__btn[aria-expanded="true"] .acc__icon { transform:rotate(45deg); }
-
-/* ====== MAP ====== */
 .map { padding:0; overflow:hidden; }
 .map__box { height:400px; border-radius:var(--radius) var(--radius) 0 0; overflow:hidden; }
 .map__box iframe { width:100%; height:100%; border:0; }
@@ -290,8 +246,6 @@ ul, ol { list-style: none; }
 .map__title { margin-bottom:6px; font-size:16px; font-weight:800; }
 .map__text { margin-bottom:14px; color:var(--muted); font-size:14px; }
 .map__row { display:flex; gap:10px; flex-wrap:wrap; }
-
-/* ====== MODAL ====== */
 .modal { position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.65); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:grid; place-items:center; padding:24px; animation:fadeIn .2s ease; }
 .modal__card { width:min(600px,96vw); border-radius:var(--radius); border:1px solid var(--border); background:var(--bg2); padding:28px; box-shadow:var(--shadow-lg); position:relative; animation:scaleIn .25s cubic-bezier(.4,0,.2,1); }
 @keyframes scaleIn { from{ opacity:0; transform:scale(.96); } to{ opacity:1; transform:scale(1); } }
@@ -303,8 +257,6 @@ ul, ol { list-style: none; }
 .modal__text { margin-bottom:16px; color:var(--text); font-size:14px; line-height:1.6; }
 .modal__tags { display:flex; flex-wrap:wrap; gap:8px; }
 .tag { font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
-
-/* ====== FOOTER ====== */
 .footer { padding:36px 0 48px; border-top:1px solid var(--border); background:var(--bg2); }
 .footer__inner { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
 .footer__text { margin:10px 0 0; color:var(--muted); max-width:55ch; font-size:13px; }
@@ -312,115 +264,90 @@ ul, ol { list-style: none; }
 .footer__links a { color:var(--muted); padding:8px 12px; border-radius:var(--radius-xs); border:1px solid transparent; font-size:13px; font-weight:600; transition:all var(--transition); }
 .footer__links a:hover { border-color:var(--border); color:var(--text); background:var(--card); }
 .brand--footer { opacity:.9; }
-
-/* ====== CELEBRATION ====== */
 .celebrate { margin-top:16px; border:1px solid var(--primary-border); border-radius:var(--radius); background:var(--primary-soft); padding:24px; position:relative; overflow:hidden; animation:fadeIn .4s ease; }
 .celebrate__badge { display:inline-flex; padding:4px 12px; border-radius:999px; border:1px solid var(--border); color:var(--muted); background:var(--card); margin-bottom:10px; font-size:14px; }
 .celebrate__title { margin-bottom:6px; font-weight:900; font-size:18px; }
 .celebrate__text { margin-bottom:14px; color:var(--muted); font-size:14px; }
 .celebrate__row { display:flex; gap:10px; flex-wrap:wrap; }
 .fx { position:absolute; inset:0; pointer-events:none; }
-
-/* ====== SCROLLBAR ====== */
 ::-webkit-scrollbar { width:8px; }
 ::-webkit-scrollbar-track { background:var(--bg); }
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:999px; }
 ::-webkit-scrollbar-thumb:hover { background:var(--muted); }
-
-/* ====== SELECTION ====== */
 ::selection { background:var(--primary-soft); color:var(--primary); }
 </style>
 </head>
 <body>
-
 <a class="skip" href="#main">Skip to content</a>
-
-<!-- HEADER -->
 <header class="header" id="top">
   <div class="container header__inner">
-    <div class="brand">
-      <span class="brand__dot"></span>
-      <span class="brand__name">HOLLYWOOD</span>
-    </div>
+    <div class="brand"><span class="brand__dot"></span><span class="brand__name">HOLLYWOOD</span></div>
     <nav class="nav" id="navMenu" aria-label="Primary">
-      <a class="nav__link" href="#about" data-i18n="nav.about">О проекте</a>
+      <a class="nav__link" href="#about" data-i18n="nav.about">О Голливуде</a>
       <a class="nav__link" href="#places" data-i18n="nav.places">Места</a>
       <a class="nav__link" href="#timeline" data-i18n="nav.timeline">Хронология</a>
-      <a class="nav__link" href="#history" data-i18n="nav.history">Ветка истории</a>
-      <a class="nav__link" href="#explore" data-i18n="nav.explore">Фильмы/студии</a>
-      <a class="nav__link" href="#travel" data-i18n="nav.travel">Советы</a>
+      <a class="nav__link" href="#history" data-i18n="nav.history">Эпохи</a>
+      <a class="nav__link" href="#explore" data-i18n="nav.explore">Фильмы и люди</a>
+      <a class="nav__link" href="#travel" data-i18n="nav.travel">Путешествие</a>
       <a class="nav__link" href="#game" data-i18n="nav.game">Игра</a>
       <a class="nav__link" href="#quiz" data-i18n="nav.quiz">Тест</a>
-      <a class="nav__link" href="#faq" data-i18n="nav.faq">Вопросы</a>
+      <a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
       <a class="nav__link" href="#map" data-i18n="nav.map">Карта</a>
     </nav>
     <div class="header__actions">
-      <button class="btn btn--icon" id="themeBtn" type="button" aria-label="Toggle theme">
-        <span class="icon icon-theme" aria-hidden="true">☾</span>
-        <span class="hide-sm" data-i18n="actions.theme">Тема</span>
-      </button>
-      <div class="lang" role="group" aria-label="Language">
-        <button class="lang__btn" id="langRu" type="button">RU</button>
-        <button class="lang__btn" id="langEn" type="button">EN</button>
-      </div>
-      <button class="burger" id="burgerBtn" type="button" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="btn btn--icon" id="themeBtn" type="button" aria-label="Toggle theme"><span class="icon icon-theme" aria-hidden="true">☾</span><span class="hide-sm" data-i18n="actions.theme">Тема</span></button>
+      <div class="lang" role="group" aria-label="Language"><button class="lang__btn" id="langRu" type="button">RU</button><button class="lang__btn" id="langEn" type="button">EN</button></div>
+      <button class="burger" id="burgerBtn" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
-
-<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav" hidden>
   <nav class="mobile-nav__list">
-    <a class="mobile-nav__link" href="#about" data-i18n="nav.about">О проекте</a>
+    <a class="mobile-nav__link" href="#about" data-i18n="nav.about">О Голливуде</a>
     <a class="mobile-nav__link" href="#places" data-i18n="nav.places">Места</a>
     <a class="mobile-nav__link" href="#timeline" data-i18n="nav.timeline">Хронология</a>
-    <a class="mobile-nav__link" href="#history" data-i18n="nav.history">Ветка истории</a>
-    <a class="mobile-nav__link" href="#explore" data-i18n="nav.explore">Фильмы/студии</a>
-    <a class="mobile-nav__link" href="#travel" data-i18n="nav.travel">Советы</a>
+    <a class="mobile-nav__link" href="#history" data-i18n="nav.history">Эпохи</a>
+    <a class="mobile-nav__link" href="#explore" data-i18n="nav.explore">Фильмы и люди</a>
+    <a class="mobile-nav__link" href="#travel" data-i18n="nav.travel">Путешествие</a>
     <a class="mobile-nav__link" href="#game" data-i18n="nav.game">Игра</a>
     <a class="mobile-nav__link" href="#quiz" data-i18n="nav.quiz">Тест</a>
-    <a class="mobile-nav__link" href="#faq" data-i18n="nav.faq">Вопросы</a>
+    <a class="mobile-nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
     <a class="mobile-nav__link" href="#map" data-i18n="nav.map">Карта</a>
   </nav>
 </div>
-
 <main id="main">
-
-<!-- HERO -->
 <section class="hero">
   <div class="container hero__inner">
     <div class="hero__text">
       <p class="badge anim" data-i18n="hero.badge">Интерактивный гид</p>
       <h1 class="hero__title anim" data-i18n="hero.title">Голливуд: сердце мира кино</h1>
-      <p class="hero__subtitle anim" data-i18n="hero.subtitle">Иконические места, факты, большая история и проверка знаний — всё на одной странице.</p>
+      <p class="hero__subtitle anim" data-i18n="hero.subtitle">Иконические места, факты, история и проверка знаний — всё на одной странице.</p>
       <div class="hero__cta anim">
         <a class="btn btn--primary" href="#places" data-i18n="hero.cta1">Смотреть места</a>
         <a class="btn btn--ghost" href="#game" data-i18n="hero.cta2">Сыграть в игру</a>
       </div>
-      <div class="stats anim" aria-label="Quick facts">
-        <div class="stat"><div class="stat__num" data-count="1911">0</div><div class="stat__label" data-i18n="hero.stat1">Эпоха первых студий</div></div>
+      <div class="stats anim">
+        <div class="stat"><div class="stat__num" data-count="1911">0</div><div class="stat__label" data-i18n="hero.stat1">Первая студия</div></div>
         <div class="stat"><div class="stat__num" data-count="2700" data-suffix="+">0</div><div class="stat__label" data-i18n="hero.stat2">Звёзд на Аллее славы</div></div>
         <div class="stat"><div class="stat__num" data-count="1">0</div><div class="stat__label" data-i18n="hero.stat3">Легендарный знак</div></div>
       </div>
     </div>
     <div class="hero__card card anim" role="note">
-      <h3 data-i18n="hero.tipTitle">Подсказка</h3>
-      <p data-i18n="hero.tipText">Переключай язык (RU/EN) и тему. Выбор сохраняется автоматически.</p>
+      <h3 data-i18n="hero.tipTitle">Навигация</h3>
+      <p data-i18n="hero.tipText">Переключай язык и тему оформления. Настройки сохраняются автоматически.</p>
       <div class="chips">
         <a class="chip" href="#history" data-i18n="hero.chip1">История</a>
-        <a class="chip" href="#travel" data-i18n="hero.chip2">Советы</a>
+        <a class="chip" href="#travel" data-i18n="hero.chip2">Путешествие</a>
         <a class="chip" href="#game" data-i18n="hero.chip3">Игра</a>
         <a class="chip" href="#map" data-i18n="hero.chip4">Карта</a>
       </div>
       <div class="mini">
-        <div class="mini__title" data-i18n="hero.miniTitle">Для защиты проекта</div>
+        <div class="mini__title" data-i18n="hero.miniTitle">Возможности сайта</div>
         <ul class="mini__list">
-          <li data-i18n="hero.mini1">Перевод RU/EN + смена темы</li>
-          <li data-i18n="hero.mini2">Ветка истории с эпохами</li>
-          <li data-i18n="hero.mini3">Калькулятор бюджета + безопасность</li>
-          <li data-i18n="hero.mini4">Игра, которая фокусирует Google-карту</li>
+          <li data-i18n="hero.mini1">Двуязычный интерфейс (RU/EN)</li>
+          <li data-i18n="hero.mini2">История кино по эпохам</li>
+          <li data-i18n="hero.mini3">Калькулятор бюджета поездки</li>
+          <li data-i18n="hero.mini4">Игра с фокусировкой на карте</li>
         </ul>
       </div>
     </div>
@@ -428,7 +355,6 @@ ul, ol { list-style: none; }
   <div class="hero__bg" aria-hidden="true"></div>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
     <div class="section__head anim">
@@ -438,59 +364,55 @@ ul, ol { list-style: none; }
     <div class="grid grid--3">
       <article class="card anim"><div class="card__icon">📍</div><h3 data-i18n="about.card1.title">Место и бренд</h3><p data-i18n="about.card1.text">Это и реальный район, и образ кино: студии, знаменитости, премьеры и поп-культура.</p></article>
       <article class="card anim"><div class="card__icon">☀️</div><h3 data-i18n="about.card2.title">Почему именно здесь</h3><p data-i18n="about.card2.text">Климат, ландшафты и рост ранних студий сделали Южную Калифорнию идеальным местом для съёмок.</p></article>
-      <article class="card anim"><div class="card__icon">🎥</div><h3 data-i18n="about.card3.title">Что посмотреть</h3><p data-i18n="about.card3.text">Аллея славы, TCL Chinese Theatre, точки обзора Hollywood Sign, студии, музеи и многое другое.</p></article>
+      <article class="card anim"><div class="card__icon">🎥</div><h3 data-i18n="about.card3.title">Что посмотреть</h3><p data-i18n="about.card3.text">Аллея славы, TCL Chinese Theatre, Hollywood Sign, студии, музеи и многое другое.</p></article>
     </div>
     <div class="callout anim">
       <div class="callout__icon" aria-hidden="true">🎬</div>
-      <div><h3 data-i18n="about.callout.title">Мини-факт</h3><p data-i18n="about.callout.text">Надпись "Hollywood" раньше была "Hollywoodland" и изначально рекламировала недвижимость.</p></div>
+      <div><h3 data-i18n="about.callout.title">Факт</h3><p data-i18n="about.callout.text">Надпись «Hollywood» изначально была «Hollywoodland» — это была реклама жилого района.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PLACES -->
 <section class="section" id="places">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="places.title">Топ мест</h2>
-      <p class="section__desc" data-i18n="places.desc">Нажми на место — карта сфокусируется и покажет описание.</p>
+      <h2 class="section__title" data-i18n="places.title">Главные места</h2>
+      <p class="section__desc" data-i18n="places.desc">Нажми на место — карта покажет его расположение.</p>
     </div>
     <div class="places">
       <button class="place anim" type="button" data-place="walk"><div class="place__emoji">⭐</div><div class="place__title" data-i18n="places.walk.title">Аллея славы</div><div class="place__text" data-i18n="places.walk.text">Звёзды в тротуаре на Hollywood Boulevard.</div></button>
       <button class="place anim" type="button" data-place="tcl"><div class="place__emoji">🏛️</div><div class="place__title" data-i18n="places.tcl.title">TCL Chinese Theatre</div><div class="place__text" data-i18n="places.tcl.text">Культовый дворик с отпечатками рук и ног знаменитостей.</div></button>
-      <button class="place anim" type="button" data-place="sign"><div class="place__emoji">🏔️</div><div class="place__title" data-i18n="places.sign.title">Вид на Hollywood Sign</div><div class="place__text" data-i18n="places.sign.text">Лучшие точки для фото и рядом красивые маршруты.</div></button>
-      <button class="place anim" type="button" data-place="observatory"><div class="place__emoji">🔭</div><div class="place__title" data-i18n="places.observatory.title">Гриффит-обсерватория</div><div class="place__text" data-i18n="places.observatory.text">Панорама города, выставки про космос и популярная кино-локация.</div></button>
-      <button class="place anim" type="button" data-place="museum"><div class="place__emoji">🎞️</div><div class="place__title" data-i18n="places.museum.title">Музей кино Академии</div><div class="place__text" data-i18n="places.museum.text">Современный музей про историю кино и профессию.</div></button>
-      <button class="place anim" type="button" data-place="studios"><div class="place__emoji">🎬</div><div class="place__title" data-i18n="places.studios.title">Экскурсии по студиям</div><div class="place__text" data-i18n="places.studios.text">Павильоны, декорации и закулисье (зависит от студии).</div></button>
+      <button class="place anim" type="button" data-place="sign"><div class="place__emoji">🏔️</div><div class="place__title" data-i18n="places.sign.title">Hollywood Sign</div><div class="place__text" data-i18n="places.sign.text">Лучшие точки для фото и пешие маршруты.</div></button>
+      <button class="place anim" type="button" data-place="observatory"><div class="place__emoji">🔭</div><div class="place__title" data-i18n="places.observatory.title">Гриффит-обсерватория</div><div class="place__text" data-i18n="places.observatory.text">Панорама города, выставки про космос и культовая кино-локация.</div></button>
+      <button class="place anim" type="button" data-place="museum"><div class="place__emoji">🎞️</div><div class="place__title" data-i18n="places.museum.title">Музей кино Академии</div><div class="place__text" data-i18n="places.museum.text">Современный музей про историю и профессию кинематографа.</div></button>
+      <button class="place anim" type="button" data-place="studios"><div class="place__emoji">🎬</div><div class="place__title" data-i18n="places.studios.title">Экскурсии по студиям</div><div class="place__text" data-i18n="places.studios.text">Павильоны, декорации и закулисье крупнейших студий.</div></button>
     </div>
-    <div class="note anim"><strong data-i18n="places.noteTitle">Важно:</strong> <span data-i18n="places.noteText">Координаты примерные для демонстрации — можно подправить в app.js.</span></div>
   </div>
 </section>
 
-<!-- TIMELINE -->
 <section class="section" id="timeline">
   <div class="container">
     <div class="section__head anim">
       <h2 class="section__title" data-i18n="timeline.title">Хронология</h2>
-      <p class="section__desc" data-i18n="timeline.desc">Коротко, но по делу: как район стал символом кино.</p>
+      <p class="section__desc" data-i18n="timeline.desc">Как район превратился в мировой символ кино.</p>
     </div>
     <div class="timeline" role="list">
-      <div class="titem anim" role="listitem"><div class="titem__year">1900–1910s</div><div class="titem__body"><h3 data-i18n="timeline.t1.title">Переезд на Запад</h3><p data-i18n="timeline.t1.text">Кинематографисты выбирают Южную Калифорнию: солнце, локации и съёмки круглый год.</p><ul class="titem__bullets"><li data-i18n="timeline.t1.b1">Появляются павильоны и бэклоты</li><li data-i18n="timeline.t1.b2">Формируется "студийная система"</li></ul></div></div>
+      <div class="titem anim" role="listitem"><div class="titem__year">1900–1910s</div><div class="titem__body"><h3 data-i18n="timeline.t1.title">Переезд на Запад</h3><p data-i18n="timeline.t1.text">Кинематографисты выбирают Южную Калифорнию: солнце, локации и съёмки круглый год.</p><ul class="titem__bullets"><li data-i18n="timeline.t1.b1">Появляются павильоны и бэклоты</li><li data-i18n="timeline.t1.b2">Формируется студийная система</li></ul></div></div>
       <div class="titem anim" role="listitem"><div class="titem__year">1920s</div><div class="titem__body"><h3 data-i18n="timeline.t2.title">Немое кино и культ звёзд</h3><p data-i18n="timeline.t2.text">Премьеры, журналы для фанатов и первые мировые звёзды формируют образ Голливуда.</p><ul class="titem__bullets"><li data-i18n="timeline.t2.b1">Доминируют комедии и мелодрамы</li><li data-i18n="timeline.t2.b2">Кино становится массовым развлечением</li></ul></div></div>
-      <div class="titem anim" role="listitem"><div class="titem__year">1930s–40s</div><div class="titem__body"><h3 data-i18n="timeline.t3.title">Золотой век</h3><p data-i18n="timeline.t3.text">Звуковое кино, мюзиклы и классические жанры. Студии контролируют производство и прокат.</p><ul class="titem__bullets"><li data-i18n="timeline.t3.b1">Появляется "грамматика жанров"</li><li data-i18n="timeline.t3.b2">Актёры становятся культурными символами</li></ul></div></div>
+      <div class="titem anim" role="listitem"><div class="titem__year">1930s–40s</div><div class="titem__body"><h3 data-i18n="timeline.t3.title">Золотой век</h3><p data-i18n="timeline.t3.text">Звуковое кино, мюзиклы и классические жанры. Студии контролируют производство и прокат.</p><ul class="titem__bullets"><li data-i18n="timeline.t3.b1">Складывается жанровая система</li><li data-i18n="timeline.t3.b2">Актёры становятся культурными символами</li></ul></div></div>
       <div class="titem anim" role="listitem"><div class="titem__year">1950s–60s</div><div class="titem__body"><h3 data-i18n="timeline.t4.title">Вызов телевидения</h3><p data-i18n="timeline.t4.text">Кино конкурирует с ТВ: широкие форматы, зрелищность и новый маркетинг.</p><ul class="titem__bullets"><li data-i18n="timeline.t4.b1">Больше масштаб и бюджеты</li><li data-i18n="timeline.t4.b2">Меняются привычки зрителей</li></ul></div></div>
       <div class="titem anim" role="listitem"><div class="titem__year">1970s</div><div class="titem__body"><h3 data-i18n="timeline.t5.title">Новый Голливуд</h3><p data-i18n="timeline.t5.text">Режиссёры рискуют: реализм, авторский стиль и новые жанры.</p><ul class="titem__bullets"><li data-i18n="timeline.t5.b1">Антигерои и эксперименты</li><li data-i18n="timeline.t5.b2">Рождается модель блокбастера</li></ul></div></div>
-      <div class="titem anim" role="listitem"><div class="titem__year">1990s–2010s</div><div class="titem__body"><h3 data-i18n="timeline.t6.title">Франшизы и цифровая эпоха</h3><p data-i18n="timeline.t6.text">CGI меняет производство. Франшизы формируют мировой бокс-офис.</p><ul class="titem__bullets"><li data-i18n="timeline.t6.b1">Маркетинг становится глобальным</li><li data-i18n="timeline.t6.b2">Эра "IP" (сиквелы, вселенные)</li></ul></div></div>
-      <div class="titem anim" role="listitem"><div class="titem__year">Today</div><div class="titem__body"><h3 data-i18n="timeline.t7.title">Стриминг и глобальные съёмки</h3><p data-i18n="timeline.t7.text">Платформы, виртуальное производство и международные команды меняют роль Голливуда.</p><ul class="titem__bullets"><li data-i18n="timeline.t7.b1">Гибридные релизы (кино + онлайн)</li><li data-i18n="timeline.t7.b2">LED-павильоны и real-time VFX</li></ul></div></div>
+      <div class="titem anim" role="listitem"><div class="titem__year">1990s–2010s</div><div class="titem__body"><h3 data-i18n="timeline.t6.title">Франшизы и цифровая эпоха</h3><p data-i18n="timeline.t6.text">CGI меняет производство. Франшизы формируют мировой бокс-офис.</p><ul class="titem__bullets"><li data-i18n="timeline.t6.b1">Маркетинг становится глобальным</li><li data-i18n="timeline.t6.b2">Эра сиквелов и киновселенных</li></ul></div></div>
+      <div class="titem anim" role="listitem"><div class="titem__year">2020s</div><div class="titem__body"><h3 data-i18n="timeline.t7.title">Стриминг и глобальные съёмки</h3><p data-i18n="timeline.t7.text">Платформы, виртуальное производство и международные команды меняют роль Голливуда.</p><ul class="titem__bullets"><li data-i18n="timeline.t7.b1">Гибридные релизы: кино + онлайн</li><li data-i18n="timeline.t7.b2">LED-павильоны и real-time VFX</li></ul></div></div>
     </div>
   </div>
 </section>
 
-<!-- HISTORY TREE -->
 <section class="section" id="history">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="history.title">Ветка истории</h2>
-      <p class="section__desc" data-i18n="history.desc">Выбери эпоху — откроется "ветка" с ключевыми идеями и изменениями.</p>
+      <h2 class="section__title" data-i18n="history.title">Эпохи Голливуда</h2>
+      <p class="section__desc" data-i18n="history.desc">Выбери эпоху — откроются ключевые идеи и изменения.</p>
     </div>
     <div class="history card card--soft anim">
       <div class="history__tabs" role="tablist">
@@ -505,12 +427,11 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- EXPLORE -->
 <section class="section" id="explore">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="explore.title">Интерактив: фильмы, студии, люди</h2>
-      <p class="section__desc" data-i18n="explore.desc">Ищи и фильтруй карточки. Нажми на любую — откроются детали.</p>
+      <h2 class="section__title" data-i18n="explore.title">Фильмы, студии, люди</h2>
+      <p class="section__desc" data-i18n="explore.desc">Ищи и фильтруй карточки. Нажми на любую для подробностей.</p>
     </div>
     <div class="explore card card--soft anim">
       <div class="explore__controls">
@@ -525,33 +446,32 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- TRAVEL -->
 <section class="section" id="travel">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="travel.title">Практика: стоимость, безопасность, когда ехать</h2>
-      <p class="section__desc" data-i18n="travel.desc">Секция для защиты: бюджет, план, безопасность и чек-лист.</p>
+      <h2 class="section__title" data-i18n="travel.title">Поездка в Голливуд</h2>
+      <p class="section__desc" data-i18n="travel.desc">Бюджет, безопасность и практические советы.</p>
     </div>
     <div class="grid grid--3">
-      <article class="card anim"><div class="card__icon">🌤️</div><h3 data-i18n="travel.c1.title">Когда ехать</h3><p data-i18n="travel.c1.text">Комфортнее всего весной и осенью. Летом жарко и много людей.</p><ul class="list"><li data-i18n="travel.c1.b1">Утро — лучше для фото</li><li data-i18n="travel.c1.b2">В будни спокойнее</li></ul></article>
+      <article class="card anim"><div class="card__icon">🌤️</div><h3 data-i18n="travel.c1.title">Когда ехать</h3><p data-i18n="travel.c1.text">Комфортнее всего весной и осенью. Летом жарко и много туристов.</p><ul class="list"><li data-i18n="travel.c1.b1">Утро — лучшее время для фото</li><li data-i18n="travel.c1.b2">В будни спокойнее</li></ul></article>
       <article class="card anim"><div class="card__icon">🛡️</div><h3 data-i18n="travel.c2.title">Безопасность</h3><p data-i18n="travel.c2.text">Держись людных улиц, следи за вещами и пользуйся официальным транспортом.</p><ul class="list"><li data-i18n="travel.c2.b1">Не демонстрируй дорогие вещи</li><li data-i18n="travel.c2.b2">Планируй маршрут заранее</li></ul></article>
-      <article class="card anim"><div class="card__icon">💵</div><h3 data-i18n="travel.c3.title">Деньги и билеты</h3><p data-i18n="travel.c3.text">Много бесплатного: Аллея славы, виды, иногда дни бесплатного входа в музеи.</p><ul class="list"><li data-i18n="travel.c3.b1">Поставь лимит на день</li><li data-i18n="travel.c3.b2">Туры по студиям бронируй заранее</li></ul></article>
+      <article class="card anim"><div class="card__icon">💵</div><h3 data-i18n="travel.c3.title">Деньги и билеты</h3><p data-i18n="travel.c3.text">Много бесплатного: Аллея славы, смотровые площадки, дни открытых дверей в музеях.</p><ul class="list"><li data-i18n="travel.c3.b1">Установи лимит на день</li><li data-i18n="travel.c3.b2">Туры по студиям бронируй заранее</li></ul></article>
     </div>
     <div class="budget card card--soft anim">
-      <div class="budget__head"><h3 data-i18n="travel.calc.title">Мини-калькулятор бюджета</h3><p class="muted" data-i18n="travel.calc.desc">Оценка бюджета поездки (демо-числа).</p></div>
+      <div class="budget__head"><h3 data-i18n="travel.calc.title">Калькулятор бюджета</h3><p class="muted" data-i18n="travel.calc.desc">Быстрая оценка расходов на поездку.</p></div>
       <div class="budget__grid">
         <div class="field"><label class="field__label" for="days" data-i18n="travel.calc.days">Дней</label><input class="field__input" id="days" type="number" min="1" max="30" value="3" /></div>
         <div class="field"><label class="field__label" for="daily" data-i18n="travel.calc.daily">Бюджет в день (USD)</label><input class="field__input" id="daily" type="number" min="10" max="1000" value="120" /></div>
-        <div class="field"><label class="field__label" for="extras" data-i18n="travel.calc.extras">Дополнительно (билеты, туры)</label><input class="field__input" id="extras" type="number" min="0" max="5000" value="80" /></div>
-        <div class="budget__result" aria-live="polite"><div class="budget__big" id="budgetTotal">$—</div><div class="muted" data-i18n="travel.calc.hint">Итого (примерно)</div></div>
+        <div class="field"><label class="field__label" for="extras" data-i18n="travel.calc.extras">Билеты и экскурсии</label><input class="field__input" id="extras" type="number" min="0" max="5000" value="80" /></div>
+        <div class="budget__result" aria-live="polite"><div class="budget__big" id="budgetTotal">$—</div><div class="muted" data-i18n="travel.calc.hint">Итого</div></div>
       </div>
       <div class="check">
-        <h4 class="check__title" data-i18n="travel.check.title">Чек-лист</h4>
+        <h4 class="check__title" data-i18n="travel.check.title">Чек-лист путешественника</h4>
         <div class="check__grid">
           <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i1">Удобная обувь</span></label>
           <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i2">Вода + крем SPF</span></label>
-          <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i3">Скрин карты офлайн</span></label>
-          <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i4">Билеты/бронирования</span></label>
+          <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i3">Офлайн-карта</span></label>
+          <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i4">Билеты и брони</span></label>
           <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i5">Пауэрбанк</span></label>
           <label class="check__item"><input type="checkbox" /> <span data-i18n="travel.check.i6">Лимит бюджета</span></label>
         </div>
@@ -559,13 +479,11 @@ ul, ol { list-style: none; }
     </div>
   </div>
 </section>
-
-<!-- GAME -->
 <section class="section" id="game">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="game.title">Мини-игра: угадай место</h2>
-      <p class="section__desc" data-i18n="game.desc">Выбери правильное место — карта сфокусируется на нём.</p>
+      <h2 class="section__title" data-i18n="game.title">Угадай место</h2>
+      <p class="section__desc" data-i18n="game.desc">Выбери правильное место — карта покажет его.</p>
     </div>
     <div class="game card card--soft anim">
       <div class="game__top">
@@ -581,16 +499,14 @@ ul, ol { list-style: none; }
         <p class="celebrate__text" id="gameCelebrateText">—</p>
         <div class="celebrate__row"><button class="btn btn--primary" type="button" id="gamePlayAgain">Сыграть ещё</button><a class="btn btn--ghost" href="#quiz" id="gameToQuiz">К тесту</a></div>
       </div>
-      <div class="note"><strong data-i18n="game.noteT">Подсказка:</strong> <span data-i18n="game.noteX">После ответа пролистай к карте — увидишь фокус.</span></div>
     </div>
   </div>
 </section>
 
-<!-- QUIZ -->
 <section class="section" id="quiz">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="quiz.title">Быстрый тест</h2>
+      <h2 class="section__title" data-i18n="quiz.title">Тест на знание Голливуда</h2>
       <p class="section__desc" data-i18n="quiz.desc">5 вопросов. Результат сразу.</p>
     </div>
     <div class="quiz card card--soft anim">
@@ -616,7 +532,6 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
     <div class="section__head anim">
@@ -624,20 +539,19 @@ ul, ol { list-style: none; }
       <p class="section__desc" data-i18n="faq.desc">Коротко и по делу.</p>
     </div>
     <div class="accordion anim">
-      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q1.q">Голливуд — это город?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q1.a">Нет. Это район в Лос-Анджелесе (Калифорния).</p></div></div>
-      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q2.q">Можно ли подняться к Hollywood Sign?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q2.a">Можно дойти до смотровых точек рядом, но прямо за табличку проход ограничен.</p></div></div>
-      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q3.q">Где обычно проходят премьеры?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q3.a">Часто — в известных кинотеатрах вроде Chinese Theatre, но зависит от фильма.</p></div></div>
-      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q4.q">Аллея славы бесплатная?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q4.a">Да — это обычный тротуар, открытый для всех.</p></div></div>
+      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q1.q">Голливуд — это город?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q1.a">Нет. Это район в Лос-Анджелесе, Калифорния.</p></div></div>
+      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q2.q">Можно ли подняться к Hollywood Sign?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q2.a">Можно дойти до смотровых точек рядом, но проход за сам знак ограничен.</p></div></div>
+      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q3.q">Где проходят премьеры фильмов?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q3.a">Чаще всего в культовых кинотеатрах вроде Chinese Theatre, но зависит от фильма.</p></div></div>
+      <div class="acc"><button class="acc__btn" type="button" aria-expanded="false"><span data-i18n="faq.q4.q">Аллея славы бесплатная?</span><span class="acc__icon" aria-hidden="true">+</span></button><div class="acc__panel" hidden><p data-i18n="faq.q4.a">Да — это обычный тротуар, открытый круглосуточно.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- MAP -->
 <section class="section" id="map">
   <div class="container">
     <div class="section__head anim">
-      <h2 class="section__title" data-i18n="map.title">Интерактивная карта</h2>
-      <p class="section__desc" data-i18n="map.desc">Нажимай места (или играй) — Google-карта сфокусируется.</p>
+      <h2 class="section__title" data-i18n="map.title">Карта Голливуда</h2>
+      <p class="section__desc" data-i18n="map.desc">Выбирай места выше или играй — карта покажет локацию.</p>
     </div>
     <div class="map card card--soft anim">
       <div class="map__box"><iframe id="gmapFrame" title="Google Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=34.102,-118.329&z=12&output=embed"></iframe></div>
@@ -645,25 +559,23 @@ ul, ol { list-style: none; }
         <h3 id="mapTitle" class="map__title">—</h3>
         <p id="mapText" class="map__text">—</p>
         <div class="map__row">
-          <button class="btn btn--ghost btn--sm" type="button" id="mapReset" data-i18n="map.reset">Сбросить вид</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="mapReset" data-i18n="map.reset">Сбросить</button>
           <a class="btn btn--primary btn--sm" href="#top" data-i18n="map.toTop">Наверх</a>
           <a class="btn btn--ghost btn--sm" id="mapOpen" target="_blank" rel="noopener" href="https://www.google.com/maps?q=34.102,-118.329&z=12" data-i18n="map.open">Открыть в Google Maps</a>
         </div>
       </div>
     </div>
-    <p class="tiny" data-i18n="map.credit">Встроенная Google-карта (без API ключа). Некоторые функции ограничены.</p>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer__inner">
-    <div><div class="brand brand--footer"><span class="brand__dot"></span><span class="brand__name">HOLLYWOOD</span></div><p class="footer__text" data-i18n="footer.text">Школьный проект: одностраничный интерактивный сайт с переводом, историей, советами, тестом, игрой и картой.</p></div>
+    <div><div class="brand brand--footer"><span class="brand__dot"></span><span class="brand__name">HOLLYWOOD</span></div><p class="footer__text" data-i18n="footer.text">Интерактивный гид по Голливуду: история, места, тест, игра и карта.</p></div>
     <div class="footer__links">
-      <a href="#history" data-i18n="nav.history">Ветка истории</a>
-      <a href="#travel" data-i18n="nav.travel">Советы</a>
+      <a href="#history" data-i18n="nav.history">Эпохи</a>
+      <a href="#travel" data-i18n="nav.travel">Путешествие</a>
       <a href="#game" data-i18n="nav.game">Игра</a>
       <a href="#quiz" data-i18n="nav.quiz">Тест</a>
       <a href="#map" data-i18n="nav.map">Карта</a>
@@ -671,7 +583,6 @@ ul, ol { list-style: none; }
   </div>
 </footer>
 
-<!-- MODAL -->
 <div class="modal" id="exploreModal" hidden aria-modal="true" role="dialog">
   <div class="modal__card">
     <button class="modal__close" id="exploreModalClose" type="button" aria-label="Close">✕</button>
@@ -693,121 +604,118 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 const I18N = {
   en: {
-    "nav.about":"About","nav.places":"Places","nav.timeline":"Timeline","nav.history":"History tree",
-    "nav.explore":"Explore","nav.travel":"Travel tips","nav.game":"Game",
+    "nav.about":"About","nav.places":"Places","nav.timeline":"Timeline","nav.history":"Eras",
+    "nav.explore":"Films & People","nav.travel":"Travel","nav.game":"Game",
     "nav.quiz":"Quiz","nav.faq":"FAQ","nav.map":"Map","actions.theme":"Theme",
-    "hero.badge":"Interactive city guide",
+    "hero.badge":"Interactive guide",
     "hero.title":"Hollywood: the heart of the movie world",
-    "hero.subtitle":"Discover iconic places, facts, history, and test yourself with a short quiz — all in one page.",
+    "hero.subtitle":"Iconic places, facts, history, and a knowledge check — all on one page.",
     "hero.cta1":"Explore places","hero.cta2":"Play the game",
-    "hero.stat1":"First film studio era","hero.stat2":"Stars on Walk of Fame","hero.stat3":"Legendary sign",
-    "hero.tipTitle":"Tip","hero.tipText":"Switch language (RU/EN) and theme. Your choice is saved automatically.",
-    "hero.chip1":"History","hero.chip2":"Travel tips","hero.chip3":"Game","hero.chip4":"Map",
-    "hero.miniTitle":"For presentation",
-    "hero.mini1":"Interactive i18n (RU/EN) + theme","hero.mini2":"History tree with eras",
-    "hero.mini3":"Budget calculator + safety tips","hero.mini4":"Game that focuses Google map",
+    "hero.stat1":"First studio","hero.stat2":"Stars on Walk of Fame","hero.stat3":"Legendary sign",
+    "hero.tipTitle":"Navigation","hero.tipText":"Switch language and color theme. Settings are saved automatically.",
+    "hero.chip1":"History","hero.chip2":"Travel","hero.chip3":"Game","hero.chip4":"Map",
+    "hero.miniTitle":"Features",
+    "hero.mini1":"Bilingual interface (RU/EN)","hero.mini2":"Cinema history by era",
+    "hero.mini3":"Trip budget calculator","hero.mini4":"Game with map focus",
     "about.title":"What is Hollywood?",
     "about.desc":"Hollywood is a neighborhood in Los Angeles and a symbol of the global film industry.",
     "about.card1.title":"A place & a brand",
     "about.card1.text":"It's both a real district and a metaphor for cinema, studios, celebrities, and pop culture.",
-    "about.card2.title":"Why it happened here",
-    "about.card2.text":"Climate, landscapes, and early studio growth made Los Angeles a perfect production hub.",
+    "about.card2.title":"Why here",
+    "about.card2.text":"Climate, landscapes, and early studio growth made Southern California a perfect production hub.",
     "about.card3.title":"What to see",
-    "about.card3.text":"The Walk of Fame, TCL Chinese Theatre, Hollywood Sign viewpoints, studios, museums, and more.",
-    "about.callout.title":"Mini fact",
-    "about.callout.text":"The \"Hollywood\" sign originally read \"Hollywoodland\" and was created as a real estate advertisement.",
-    "places.title":"Top places",
-    "places.desc":"Click a place to focus it on the map and see details.",
+    "about.card3.text":"The Walk of Fame, TCL Chinese Theatre, Hollywood Sign, studios, museums, and more.",
+    "about.callout.title":"Fact",
+    "about.callout.text":"The \"Hollywood\" sign originally read \"Hollywoodland\" — it was a real estate advertisement.",
+    "places.title":"Key places",
+    "places.desc":"Click a place — the map will show its location.",
     "places.walk.title":"Walk of Fame","places.walk.text":"Stars embedded in sidewalks along Hollywood Boulevard.",
     "places.tcl.title":"TCL Chinese Theatre","places.tcl.text":"Famous forecourt with celebrity handprints.",
-    "places.sign.title":"Hollywood Sign Viewpoints","places.sign.text":"Best photo spots and hiking routes nearby.",
-    "places.observatory.title":"Griffith Observatory","places.observatory.text":"City views, space exhibits, classic film location.",
-    "places.museum.title":"Academy Museum of Motion Pictures","places.museum.text":"Modern museum dedicated to cinema history and craft.",
-    "places.studios.title":"Studio Tours","places.studios.text":"Backlots, sets, and production secrets (varies by studio).",
-    "places.noteTitle":"Note:","places.noteText":"Coordinates are approximate for demo. You can adjust them in app.js.",
+    "places.sign.title":"Hollywood Sign","places.sign.text":"Best photo spots and hiking trails.",
+    "places.observatory.title":"Griffith Observatory","places.observatory.text":"City views, space exhibits, and an iconic film location.",
+    "places.museum.title":"Academy Museum of Motion Pictures","places.museum.text":"A modern museum dedicated to cinema history and craft.",
+    "places.studios.title":"Studio Tours","places.studios.text":"Backlots, sets, and behind-the-scenes of major studios.",
     "timeline.title":"Timeline",
-    "timeline.desc":"A short but meaningful overview: how the district became a symbol of cinema.",
-    "timeline.t1.title":"The move to the West",
-    "timeline.t1.text":"Filmmakers choose Southern California for sun, varied landscapes and year-round shooting.",
-    "timeline.t1.b1":"New studios and backlots appear","timeline.t1.b2":"The \"studio system\" begins forming",
+    "timeline.desc":"How the district became a global symbol of cinema.",
+    "timeline.t1.title":"The move West",
+    "timeline.t1.text":"Filmmakers choose Southern California for sun, varied landscapes, and year-round shooting.",
+    "timeline.t1.b1":"Studios and backlots appear","timeline.t1.b2":"The studio system forms",
     "timeline.t2.title":"Silent era & star culture",
-    "timeline.t2.text":"Big premieres, fan magazines, and the first global stars shape the image of Hollywood.",
-    "timeline.t2.b1":"Comedy and melodrama dominate","timeline.t2.b2":"Cinemas become mass entertainment",
+    "timeline.t2.text":"Premieres, fan magazines, and the first global stars shape the image of Hollywood.",
+    "timeline.t2.b1":"Comedy and melodrama dominate","timeline.t2.b2":"Cinema becomes mass entertainment",
     "timeline.t3.title":"Golden Age",
-    "timeline.t3.text":"Sound films, musicals and classic genres. Studios control production and distribution.",
-    "timeline.t3.b1":"Genre \"grammar\" is created","timeline.t3.b2":"Iconic actors become cultural symbols",
+    "timeline.t3.text":"Sound films, musicals, and classic genres. Studios control production and distribution.",
+    "timeline.t3.b1":"Genre system takes shape","timeline.t3.b2":"Actors become cultural icons",
     "timeline.t4.title":"Television challenge",
-    "timeline.t4.text":"Hollywood competes with TV: widescreen formats, spectacular shows and new marketing.",
-    "timeline.t4.b1":"Bigger spectacle, bigger budgets","timeline.t4.b2":"Changing audience habits",
+    "timeline.t4.text":"Hollywood competes with TV through widescreen formats, spectacle, and new marketing.",
+    "timeline.t4.b1":"Bigger scale and budgets","timeline.t4.b2":"Audience habits shift",
     "timeline.t5.title":"New Hollywood",
     "timeline.t5.text":"Directors take risks: realism, auteur style, and fresh genres.",
     "timeline.t5.b1":"Anti-heroes and experiments","timeline.t5.b2":"The blockbuster model emerges",
     "timeline.t6.title":"Franchises & digital era",
-    "timeline.t6.text":"CGI changes production. Major franchises shape global box office.",
-    "timeline.t6.b1":"Marketing becomes worldwide","timeline.t6.b2":"The \"IP era\" (sequels, universes)",
+    "timeline.t6.text":"CGI changes production. Franchises shape the global box office.",
+    "timeline.t6.b1":"Marketing goes global","timeline.t6.b2":"Era of sequels and cinematic universes",
     "timeline.t7.title":"Streaming & global production",
-    "timeline.t7.text":"Streaming platforms, virtual production, and international crews reshape Hollywood's role.",
-    "timeline.t7.b1":"Hybrid releases (cinema + online)","timeline.t7.b2":"New tech: LED stages, real-time VFX",
-    "history.title":"History tree",
-    "history.desc":"Choose an era to open a \"branch\" with key ideas, people, and changes.",
+    "timeline.t7.text":"Platforms, virtual production, and international crews reshape Hollywood's role.",
+    "timeline.t7.b1":"Hybrid releases: cinema + online","timeline.t7.b2":"LED stages and real-time VFX",
+    "history.title":"Eras of Hollywood",
+    "history.desc":"Pick an era to see key ideas and changes.",
     "history.tabs.silent":"Silent era","history.tabs.golden":"Golden Age","history.tabs.new":"New Hollywood",
     "history.tabs.blockbuster":"Blockbusters","history.tabs.streaming":"Streaming era",
-    "explore.title":"Explore: films, studios, people",
-    "explore.desc":"Search and filter cards. Click any item to open details.",
+    "explore.title":"Films, studios, people",
+    "explore.desc":"Search and filter cards. Click any for details.",
     "explore.searchLabel":"Search","explore.typeLabel":"Type","explore.eraLabel":"Era","explore.sortLabel":"Sort",
     "explore.typeAll":"All","explore.typeFilm":"Films","explore.typeStudio":"Studios","explore.typePerson":"People",
     "explore.eraAll":"Any","explore.eraClassic":"Classic","explore.eraNew":"New Hollywood","explore.eraModern":"Modern",
     "explore.sortName":"By name","explore.sortYearDesc":"Newest first","explore.sortYearAsc":"Oldest first",
     "explore.reset":"Reset","explore.count":"{n} items",
-    "travel.title":"Travel: cost, safety, best time",
-    "travel.desc":"A practical section for a presentation: budget, planning, safety and checklist.",
-    "travel.c1.title":"Best time to visit","travel.c1.text":"Comfortable weather: spring and autumn. Summer can be hot and crowded.",
-    "travel.c1.b1":"Morning for photos","travel.c1.b2":"Weekdays are calmer",
-    "travel.c2.title":"Safety basics","travel.c2.text":"Stick to busy streets, keep valuables secure, and use official transport.",
+    "travel.title":"Trip to Hollywood",
+    "travel.desc":"Budget, safety, and practical tips.",
+    "travel.c1.title":"When to go","travel.c1.text":"Spring and autumn are most comfortable. Summer is hot and crowded.",
+    "travel.c1.b1":"Morning is best for photos","travel.c1.b2":"Weekdays are calmer",
+    "travel.c2.title":"Safety","travel.c2.text":"Stick to busy streets, keep valuables secure, and use official transport.",
     "travel.c2.b1":"Don't flash expensive gear","travel.c2.b2":"Plan routes in advance",
-    "travel.c3.title":"Money & tickets","travel.c3.text":"Many things are free: Walk of Fame, views, some museums on special days.",
+    "travel.c3.title":"Money & tickets","travel.c3.text":"Lots of free things: Walk of Fame, viewpoints, museum open days.",
     "travel.c3.b1":"Set a daily limit","travel.c3.b2":"Book studio tours early",
-    "travel.calc.title":"Mini budget calculator","travel.calc.desc":"Estimate a simple trip budget (demo numbers).",
-    "travel.calc.days":"Days","travel.calc.daily":"Daily budget (USD)","travel.calc.extras":"Extras (tickets, tours)",
-    "travel.calc.hint":"Total estimate",
-    "travel.check.title":"Checklist",
-    "travel.check.i1":"Comfortable shoes","travel.check.i2":"Water + sunscreen","travel.check.i3":"Offline map screenshot",
-    "travel.check.i4":"Tickets/bookings","travel.check.i5":"Powerbank","travel.check.i6":"Budget limit",
-    "game.title":"Mini-game: guess the place","game.desc":"Choose the correct place. The map will focus your answer.",
+    "travel.calc.title":"Budget calculator","travel.calc.desc":"Quick trip cost estimate.",
+    "travel.calc.days":"Days","travel.calc.daily":"Daily budget (USD)","travel.calc.extras":"Tickets & tours",
+    "travel.calc.hint":"Total",
+    "travel.check.title":"Traveler's checklist",
+    "travel.check.i1":"Comfortable shoes","travel.check.i2":"Water + SPF","travel.check.i3":"Offline map",
+    "travel.check.i4":"Tickets & bookings","travel.check.i5":"Powerbank","travel.check.i6":"Budget limit",
+    "game.title":"Guess the place","game.desc":"Pick the right place — the map will show it.",
     "game.score":"Score: 0","game.restart":"Restart","game.next":"Next",
-    "game.noteT":"Hint:","game.noteX":"After answering, scroll to the map to see the focus.",
-    "game.finish.badge":"🎉 Finished!","game.finish.title":"Nice! You completed the mini-game",
-    "game.finish.text":"Your result: {s}/5. Want to try again or go to the quiz?",
-    "game.finish.again":"Play again","game.finish.toQuiz":"Go to quiz",
-    "quiz.title":"Quick quiz","quiz.desc":"5 questions. Instant results.",
+    "game.finish.badge":"🎉 Done!","game.finish.title":"You completed the game!",
+    "game.finish.text":"Your score: {s}/5. Play again or try the quiz?",
+    "game.finish.again":"Play again","game.finish.toQuiz":"Take the quiz",
+    "quiz.title":"Hollywood knowledge quiz","quiz.desc":"5 questions. Instant results.",
     "quiz.score":"Score: 0","quiz.prev":"Back","quiz.next":"Next","quiz.restart":"Restart",
-    "quiz.finish.badge":"✨ Great!","quiz.finish.title":"Quiz complete!",
-    "quiz.finish.text":"Result: {s}/5. You can retry or open the map.",
-    "quiz.finish.retry":"Try again","quiz.finish.toMap":"Show map",
-    "faq.title":"FAQ","faq.desc":"Common questions about Hollywood.",
+    "quiz.finish.badge":"✨ Done!","quiz.finish.title":"Quiz complete!",
+    "quiz.finish.text":"Score: {s}/5. Try again or explore the map.",
+    "quiz.finish.retry":"Try again","quiz.finish.toMap":"Open map",
+    "faq.title":"FAQ","faq.desc":"Short and clear.",
     "faq.q1.q":"Is Hollywood a city?","faq.q1.a":"No. It's a neighborhood in Los Angeles, California.",
-    "faq.q2.q":"Can you hike to the Hollywood Sign?","faq.q2.a":"You can hike to viewpoints near it, but access right behind the sign is restricted.",
-    "faq.q3.q":"Where are premieres usually held?","faq.q3.a":"Often at famous theaters like the Chinese Theatre, but it varies.",
-    "faq.q4.q":"Is the Walk of Fame free?","faq.q4.a":"Yes — it's a public sidewalk, open any time.",
-    "map.title":"Interactive map","map.desc":"Click a place (or play the game) — the Google map will focus it.",
-    "map.reset":"Reset view","map.toTop":"Back to top","map.open":"Open in Google Maps",
-    "map.credit":"Google Maps embed (no API key). Some features are limited.",
-    "footer.text":"School project: interactive one-page site with i18n, history, tips, quiz, game, and map."
+    "faq.q2.q":"Can you hike to the Hollywood Sign?","faq.q2.a":"You can reach viewpoints nearby, but access behind the sign is restricted.",
+    "faq.q3.q":"Where are film premieres held?","faq.q3.a":"Usually at iconic theaters like the Chinese Theatre, but it varies.",
+    "faq.q4.q":"Is the Walk of Fame free?","faq.q4.a":"Yes — it's a public sidewalk, open 24/7.",
+    "map.title":"Hollywood map","map.desc":"Select places above or play the game — the map will focus.",
+    "map.reset":"Reset","map.toTop":"Back to top","map.open":"Open in Google Maps",
+    "footer.text":"Interactive Hollywood guide: history, places, quiz, game, and map."
   },
   ru: {
-    "nav.about":"О проекте","nav.places":"Места","nav.timeline":"Хронология","nav.history":"Ветка истории",
-    "nav.explore":"Фильмы/студии","nav.travel":"Советы","nav.game":"Игра",
-    "nav.quiz":"Тест","nav.faq":"Вопросы","nav.map":"Карта","actions.theme":"Тема",
+    "nav.about":"О Голливуде","nav.places":"Места","nav.timeline":"Хронология","nav.history":"Эпохи",
+    "nav.explore":"Фильмы и люди","nav.travel":"Путешествие","nav.game":"Игра",
+    "nav.quiz":"Тест","nav.faq":"FAQ","nav.map":"Карта","actions.theme":"Тема",
     "hero.badge":"Интерактивный гид",
     "hero.title":"Голливуд: сердце мира кино",
-    "hero.subtitle":"Иконические места, факты, большая история и проверка знаний — всё на одной странице.",
+    "hero.subtitle":"Иконические места, факты, история и проверка знаний — всё на одной странице.",
     "hero.cta1":"Смотреть места","hero.cta2":"Сыграть в игру",
-    "hero.stat1":"Эпоха первых студий","hero.stat2":"Звёзд на Аллее славы","hero.stat3":"Легендарный знак",
-    "hero.tipTitle":"Подсказка","hero.tipText":"Переключай язык (RU/EN) и тему. Выбор сохраняется автоматически.",
-    "hero.chip1":"История","hero.chip2":"Советы","hero.chip3":"Игра","hero.chip4":"Карта",
-    "hero.miniTitle":"Для защиты проекта",
-    "hero.mini1":"Перевод RU/EN + смена темы","hero.mini2":"Ветка истории с эпохами",
-    "hero.mini3":"Калькулятор бюджета + безопасность","hero.mini4":"Игра, которая фокусирует Google-карту",
+    "hero.stat1":"Первая студия","hero.stat2":"Звёзд на Аллее славы","hero.stat3":"Легендарный знак",
+    "hero.tipTitle":"Навигация","hero.tipText":"Переключай язык и тему оформления. Настройки сохраняются автоматически.",
+    "hero.chip1":"История","hero.chip2":"Путешествие","hero.chip3":"Игра","hero.chip4":"Карта",
+    "hero.miniTitle":"Возможности сайта",
+    "hero.mini1":"Двуязычный интерфейс (RU/EN)","hero.mini2":"История кино по эпохам",
+    "hero.mini3":"Калькулятор бюджета поездки","hero.mini4":"Игра с фокусировкой на карте",
     "about.title":"Что такое Голливуд?",
     "about.desc":"Голливуд — район Лос-Анджелеса и символ мировой киноиндустрии.",
     "about.card1.title":"Место и бренд",
@@ -815,29 +723,28 @@ const I18N = {
     "about.card2.title":"Почему именно здесь",
     "about.card2.text":"Климат, ландшафты и рост ранних студий сделали Южную Калифорнию идеальным местом для съёмок.",
     "about.card3.title":"Что посмотреть",
-    "about.card3.text":"Аллея славы, TCL Chinese Theatre, точки обзора Hollywood Sign, студии, музеи и многое другое.",
-    "about.callout.title":"Мини-факт",
-    "about.callout.text":"Надпись \"Hollywood\" раньше была \"Hollywoodland\" и изначально рекламировала недвижимость.",
-    "places.title":"Топ мест",
-    "places.desc":"Нажми на место — карта сфокусируется и покажет описание.",
+    "about.card3.text":"Аллея славы, TCL Chinese Theatre, Hollywood Sign, студии, музеи и многое другое.",
+    "about.callout.title":"Факт",
+    "about.callout.text":"Надпись «Hollywood» изначально была «Hollywoodland» — это была реклама жилого района.",
+    "places.title":"Главные места",
+    "places.desc":"Нажми на место — карта покажет его расположение.",
     "places.walk.title":"Аллея славы","places.walk.text":"Звёзды в тротуаре на Hollywood Boulevard.",
     "places.tcl.title":"TCL Chinese Theatre","places.tcl.text":"Культовый дворик с отпечатками рук и ног знаменитостей.",
-    "places.sign.title":"Вид на Hollywood Sign","places.sign.text":"Лучшие точки для фото и рядом красивые маршруты.",
-    "places.observatory.title":"Гриффит-обсерватория","places.observatory.text":"Панорама города, выставки про космос и популярная кино-локация.",
-    "places.museum.title":"Музей кино Академии","places.museum.text":"Современный музей про историю кино и профессию.",
-    "places.studios.title":"Экскурсии по студиям","places.studios.text":"Павильоны, декорации и закулисье (зависит от студии).",
-    "places.noteTitle":"Важно:","places.noteText":"Координаты примерные для демонстрации — можно подправить в app.js.",
+    "places.sign.title":"Hollywood Sign","places.sign.text":"Лучшие точки для фото и пешие маршруты.",
+    "places.observatory.title":"Гриффит-обсерватория","places.observatory.text":"Панорама города, выставки про космос и культовая кино-локация.",
+    "places.museum.title":"Музей кино Академии","places.museum.text":"Современный музей про историю и профессию кинематографа.",
+    "places.studios.title":"Экскурсии по студиям","places.studios.text":"Павильоны, декорации и закулисье крупнейших студий.",
     "timeline.title":"Хронология",
-    "timeline.desc":"Коротко, но по делу: как район стал символом кино.",
+    "timeline.desc":"Как район превратился в мировой символ кино.",
     "timeline.t1.title":"Переезд на Запад",
     "timeline.t1.text":"Кинематографисты выбирают Южную Калифорнию: солнце, локации и съёмки круглый год.",
-    "timeline.t1.b1":"Появляются павильоны и бэклоты","timeline.t1.b2":"Формируется \"студийная система\"",
+    "timeline.t1.b1":"Появляются павильоны и бэклоты","timeline.t1.b2":"Формируется студийная система",
     "timeline.t2.title":"Немое кино и культ звёзд",
     "timeline.t2.text":"Премьеры, журналы для фанатов и первые мировые звёзды формируют образ Голливуда.",
     "timeline.t2.b1":"Доминируют комедии и мелодрамы","timeline.t2.b2":"Кино становится массовым развлечением",
     "timeline.t3.title":"Золотой век",
     "timeline.t3.text":"Звуковое кино, мюзиклы и классические жанры. Студии контролируют производство и прокат.",
-    "timeline.t3.b1":"Появляется \"грамматика жанров\"","timeline.t3.b2":"Актёры становятся культурными символами",
+    "timeline.t3.b1":"Складывается жанровая система","timeline.t3.b2":"Актёры становятся культурными символами",
     "timeline.t4.title":"Вызов телевидения",
     "timeline.t4.text":"Кино конкурирует с ТВ: широкие форматы, зрелищность и новый маркетинг.",
     "timeline.t4.b1":"Больше масштаб и бюджеты","timeline.t4.b2":"Меняются привычки зрителей",
@@ -846,55 +753,53 @@ const I18N = {
     "timeline.t5.b1":"Антигерои и эксперименты","timeline.t5.b2":"Рождается модель блокбастера",
     "timeline.t6.title":"Франшизы и цифровая эпоха",
     "timeline.t6.text":"CGI меняет производство. Франшизы формируют мировой бокс-офис.",
-    "timeline.t6.b1":"Маркетинг становится глобальным","timeline.t6.b2":"Эра \"IP\" (сиквелы, вселенные)",
+    "timeline.t6.b1":"Маркетинг становится глобальным","timeline.t6.b2":"Эра сиквелов и киновселенных",
     "timeline.t7.title":"Стриминг и глобальные съёмки",
     "timeline.t7.text":"Платформы, виртуальное производство и международные команды меняют роль Голливуда.",
-    "timeline.t7.b1":"Гибридные релизы (кино + онлайн)","timeline.t7.b2":"LED-павильоны и real-time VFX",
-    "history.title":"Ветка истории",
-    "history.desc":"Выбери эпоху — откроется \"ветка\" с ключевыми идеями и изменениями.",
+    "timeline.t7.b1":"Гибридные релизы: кино + онлайн","timeline.t7.b2":"LED-павильоны и real-time VFX",
+    "history.title":"Эпохи Голливуда",
+    "history.desc":"Выбери эпоху — откроются ключевые идеи и изменения.",
     "history.tabs.silent":"Немое кино","history.tabs.golden":"Золотой век","history.tabs.new":"Новый Голливуд",
     "history.tabs.blockbuster":"Блокбастеры","history.tabs.streaming":"Эра стриминга",
-    "explore.title":"Интерактив: фильмы, студии, люди",
-    "explore.desc":"Ищи и фильтруй карточки. Нажми на любую — откроются детали.",
+    "explore.title":"Фильмы, студии, люди",
+    "explore.desc":"Ищи и фильтруй карточки. Нажми на любую для подробностей.",
     "explore.searchLabel":"Поиск","explore.typeLabel":"Тип","explore.eraLabel":"Эпоха","explore.sortLabel":"Сортировка",
     "explore.typeAll":"Всё","explore.typeFilm":"Фильмы","explore.typeStudio":"Студии","explore.typePerson":"Люди",
     "explore.eraAll":"Любая","explore.eraClassic":"Классика","explore.eraNew":"Новый Голливуд","explore.eraModern":"Современное",
     "explore.sortName":"По названию","explore.sortYearDesc":"Сначала новые","explore.sortYearAsc":"Сначала старые",
-    "explore.reset":"Сброс","explore.count":"Элементов: {n}",
-    "travel.title":"Практика: стоимость, безопасность, когда ехать",
-    "travel.desc":"Секция для защиты: бюджет, план, безопасность и чек-лист.",
-    "travel.c1.title":"Когда ехать","travel.c1.text":"Комфортнее всего весной и осенью. Летом жарко и много людей.",
-    "travel.c1.b1":"Утро — лучше для фото","travel.c1.b2":"В будни спокойнее",
+    "explore.reset":"Сброс","explore.count":"Найдено: {n}",
+    "travel.title":"Поездка в Голливуд",
+    "travel.desc":"Бюджет, безопасность и практические советы.",
+    "travel.c1.title":"Когда ехать","travel.c1.text":"Комфортнее всего весной и осенью. Летом жарко и много туристов.",
+    "travel.c1.b1":"Утро — лучшее время для фото","travel.c1.b2":"В будни спокойнее",
     "travel.c2.title":"Безопасность","travel.c2.text":"Держись людных улиц, следи за вещами и пользуйся официальным транспортом.",
     "travel.c2.b1":"Не демонстрируй дорогие вещи","travel.c2.b2":"Планируй маршрут заранее",
-    "travel.c3.title":"Деньги и билеты","travel.c3.text":"Много бесплатного: Аллея славы, виды, иногда дни бесплатного входа в музеи.",
-    "travel.c3.b1":"Поставь лимит на день","travel.c3.b2":"Туры по студиям бронируй заранее",
-    "travel.calc.title":"Мини-калькулятор бюджета","travel.calc.desc":"Оценка бюджета поездки (демо-числа).",
-    "travel.calc.days":"Дней","travel.calc.daily":"Бюджет в день (USD)","travel.calc.extras":"Дополнительно (билеты, туры)",
-    "travel.calc.hint":"Итого (примерно)",
-    "travel.check.title":"Чек-лист",
-    "travel.check.i1":"Удобная обувь","travel.check.i2":"Вода + крем SPF","travel.check.i3":"Скрин карты офлайн",
-    "travel.check.i4":"Билеты/бронирования","travel.check.i5":"Пауэрбанк","travel.check.i6":"Лимит бюджета",
-    "game.title":"Мини-игра: угадай место","game.desc":"Выбери правильное место — карта сфокусируется на нём.",
+    "travel.c3.title":"Деньги и билеты","travel.c3.text":"Много бесплатного: Аллея славы, смотровые площадки, дни открытых дверей в музеях.",
+    "travel.c3.b1":"Установи лимит на день","travel.c3.b2":"Туры по студиям бронируй заранее",
+    "travel.calc.title":"Калькулятор бюджета","travel.calc.desc":"Быстрая оценка расходов на поездку.",
+    "travel.calc.days":"Дней","travel.calc.daily":"Бюджет в день (USD)","travel.calc.extras":"Билеты и экскурсии",
+    "travel.calc.hint":"Итого",
+    "travel.check.title":"Чек-лист путешественника",
+    "travel.check.i1":"Удобная обувь","travel.check.i2":"Вода + крем SPF","travel.check.i3":"Офлайн-карта",
+    "travel.check.i4":"Билеты и брони","travel.check.i5":"Пауэрбанк","travel.check.i6":"Лимит бюджета",
+    "game.title":"Угадай место","game.desc":"Выбери правильное место — карта покажет его.",
     "game.score":"Счёт: 0","game.restart":"Сначала","game.next":"Далее",
-    "game.noteT":"Подсказка:","game.noteX":"После ответа пролистай к карте — увидишь фокус.",
-    "game.finish.badge":"🎉 Готово!","game.finish.title":"Отлично! Ты прошёл мини-игру",
-    "game.finish.text":"Твой результат: {s}/5. Хочешь сыграть ещё раз или перейти к тесту?",
+    "game.finish.badge":"🎉 Готово!","game.finish.title":"Игра пройдена!",
+    "game.finish.text":"Твой результат: {s}/5. Сыграть ещё или пройти тест?",
     "game.finish.again":"Сыграть ещё","game.finish.toQuiz":"К тесту",
-    "quiz.title":"Быстрый тест","quiz.desc":"5 вопросов. Результат сразу.",
+    "quiz.title":"Тест на знание Голливуда","quiz.desc":"5 вопросов. Результат сразу.",
     "quiz.score":"Счёт: 0","quiz.prev":"Назад","quiz.next":"Далее","quiz.restart":"Сначала",
-    "quiz.finish.badge":"✨ Круто!","quiz.finish.title":"Тест завершён!",
-    "quiz.finish.text":"Результат: {s}/5. Можешь пройти ещё раз или открыть карту.",
+    "quiz.finish.badge":"✨ Готово!","quiz.finish.title":"Тест завершён!",
+    "quiz.finish.text":"Результат: {s}/5. Пройти ещё раз или открыть карту.",
     "quiz.finish.retry":"Ещё раз","quiz.finish.toMap":"Открыть карту",
     "faq.title":"Частые вопросы","faq.desc":"Коротко и по делу.",
-    "faq.q1.q":"Голливуд — это город?","faq.q1.a":"Нет. Это район в Лос-Анджелесе (Калифорния).",
-    "faq.q2.q":"Можно ли подняться к Hollywood Sign?","faq.q2.a":"Можно дойти до смотровых точек рядом, но прямо за табличку проход ограничен.",
-    "faq.q3.q":"Где обычно проходят премьеры?","faq.q3.a":"Часто — в известных кинотеатрах вроде Chinese Theatre, но зависит от фильма.",
-    "faq.q4.q":"Аллея славы бесплатная?","faq.q4.a":"Да — это обычный тротуар, открытый для всех.",
-    "map.title":"Интерактивная карта","map.desc":"Нажимай места (или играй) — Google-карта сфокусируется.",
-    "map.reset":"Сбросить вид","map.toTop":"Наверх","map.open":"Открыть в Google Maps",
-    "map.credit":"Встроенная Google-карта (без API ключа). Некоторые функции ограничены.",
-    "footer.text":"Школьный проект: одностраничный интерактивный сайт с переводом, историей, советами, тестом, игрой и картой."
+    "faq.q1.q":"Голливуд — это город?","faq.q1.a":"Нет. Это район в Лос-Анджелесе, Калифорния.",
+    "faq.q2.q":"Можно ли подняться к Hollywood Sign?","faq.q2.a":"Можно дойти до смотровых точек рядом, но проход за сам знак ограничен.",
+    "faq.q3.q":"Где проходят премьеры фильмов?","faq.q3.a":"Чаще всего в культовых кинотеатрах вроде Chinese Theatre, но зависит от фильма.",
+    "faq.q4.q":"Аллея славы бесплатная?","faq.q4.a":"Да — это обычный тротуар, открытый круглосуточно.",
+    "map.title":"Карта Голливуда","map.desc":"Выбирай места выше или играй — карта покажет локацию.",
+    "map.reset":"Сбросить","map.toTop":"Наверх","map.open":"Открыть в Google Maps",
+    "footer.text":"Интерактивный гид по Голливуду: история, места, тест, игра и карта."
   }
 };
 
@@ -962,11 +867,11 @@ function refreshMapInfoOnly(){ const active=$(".place.is-active"); if(!active)re
 function initPlacesAndMap(){ $$(".place").forEach(btn=>btn.addEventListener("click",()=>focusPlace(btn.dataset.place,true))); $("#mapReset")?.addEventListener("click",()=>{ $$(".place").forEach(btn=>btn.classList.remove("is-active")); setMapInfo("—","—"); setGoogleMap(34.102,-118.329,12); }); setGoogleMap(34.102,-118.329,12); setMapInfo("—","—"); }
 
 const HISTORY={
-  silent:{ title:{ru:"Немое кино (1910s–1920s)",en:"Silent era (1910s–1920s)"}, text:{ru:"Кино становится массовым развлечением. Формируются звёзды, язык монтажа и основы жанров.",en:"Cinema becomes mass entertainment. Star culture grows; editing language and genre foundations form."}, bullets:{ru:["Комедии/мелодрамы, крупные звёзды","Студии растут и стандартизируют производство","Премьеры формируют культуру события"],en:["Comedy/melodrama + early stars","Studios grow and standardize production","Premieres become cultural events"]}, changes:{ru:["Формируются правила съёмочного процесса","Зрительские привычки: кино как досуг","Голливуд становится брендом"],en:["Production pipeline becomes structured","Cinema as mainstream leisure","Hollywood becomes a brand"]} },
-  golden:{ title:{ru:"Золотой век (1930s–1940s)",en:"Golden Age (1930s–1940s)"}, text:{ru:"Звук меняет индустрию. Студии контролируют производство и прокат.",en:"Sound changes everything. Studios control production & distribution."}, bullets:{ru:["Звуковые фильмы и мюзиклы","Классические жанры: нуар, вестерн, комедия","Система контрактов и «звёзд»"],en:["Talkies and musicals","Classic genres: noir, western, comedy","Contract system and stars"]}, changes:{ru:["Укрепление студийной системы","Стандарты качества и массовый прокат","Голливуд — центр мировой мечты"],en:["Studio system strengthens","Quality standards + wide distribution","Hollywood as global dream factory"]} },
-  new:{ title:{ru:"Новый Голливуд (1970s)",en:"New Hollywood (1970s)"}, text:{ru:"Больше реализма и риска. Режиссёрский стиль становится заметнее.",en:"More realism and risk. Directors' voices become clearer."}, bullets:{ru:["Антигерои и социальные темы","Смелые решения в монтаже","Рождение блокбастера как модели"],en:["Anti-heroes and social themes","Bold editing and storytelling","Blockbuster model emerges"]}, changes:{ru:["Кино взрослеет и экспериментирует","Аудитория разделяется по вкусам","Новые форматы продвижения"],en:["Cinema matures and experiments","Audience segments","New marketing approaches"]} },
-  blockbuster:{ title:{ru:"Эра блокбастеров (1980s–2000s)",en:"Blockbuster era (1980s–2000s)"}, text:{ru:"Франшизы, мерч, международный прокат. Эффекты — ключ к зрителю.",en:"Franchises, merchandising, global distribution."}, bullets:{ru:["Франшизы и продолжения","Глобальный маркетинг","Рост роли спецэффектов"],en:["Franchises & sequels","Global marketing","Rise of visual effects"]}, changes:{ru:["Бюджеты растут, риск повышается","Ставка на узнаваемые бренды","Цифровая пост-продакшн культура"],en:["Bigger budgets and risk","Known IP becomes safer bet","Digital post-production culture grows"]} },
-  streaming:{ title:{ru:"Стриминг и виртуальные съёмки (2010s–today)",en:"Streaming & virtual production (2010s–today)"}, text:{ru:"Онлайн-платформы меняют потребление. Технологии быстрее и дешевле.",en:"Streaming reshapes consumption. Technology is faster and cheaper."}, bullets:{ru:["Онлайн-релизы и гибридные модели","Международные команды и локации","LED-павильоны и real-time VFX"],en:["Online releases and hybrid windows","International crews & locations","LED stages & real-time VFX"]}, changes:{ru:["Новый формат конкуренции за внимание","Больше контента, выше требования","Смешение кино/сериалов/онлайн"],en:["New competition for attention","More content, higher quality bar","Blending film/series/online formats"]} }
+  silent:{ title:{ru:"Немое кино (1910–1920-е)",en:"Silent era (1910s–1920s)"}, text:{ru:"Кино становится массовым развлечением. Формируются звёзды, язык монтажа и основы жанров.",en:"Cinema becomes mass entertainment. Star culture grows; editing language and genre foundations form."}, bullets:{ru:["Комедии, мелодрамы, крупные звёзды","Студии стандартизируют производство","Премьеры создают культуру события"],en:["Comedy, melodrama, early stars","Studios standardize production","Premieres become cultural events"]}, changes:{ru:["Формируются правила съёмочного процесса","Кино становится главным досугом","Голливуд превращается в бренд"],en:["Production pipeline takes shape","Cinema becomes main leisure","Hollywood becomes a brand"]} },
+  golden:{ title:{ru:"Золотой век (1930–1940-е)",en:"Golden Age (1930s–1940s)"}, text:{ru:"Звук меняет индустрию. Студии контролируют производство и прокат.",en:"Sound changes everything. Studios control production and distribution."}, bullets:{ru:["Звуковые фильмы и мюзиклы","Нуар, вестерн, комедия","Система контрактов и звёзд"],en:["Talkies and musicals","Noir, western, comedy","Contract system and stars"]}, changes:{ru:["Студийная система укрепляется","Стандарты качества и массовый прокат","Голливуд — центр мировой мечты"],en:["Studio system strengthens","Quality standards and wide distribution","Hollywood as global dream factory"]} },
+  new:{ title:{ru:"Новый Голливуд (1970-е)",en:"New Hollywood (1970s)"}, text:{ru:"Больше реализма и риска. Режиссёрский стиль становится заметнее.",en:"More realism and risk. Directors' voices become clearer."}, bullets:{ru:["Антигерои и социальные темы","Смелый монтаж и драматургия","Рождение модели блокбастера"],en:["Anti-heroes and social themes","Bold editing and storytelling","Blockbuster model emerges"]}, changes:{ru:["Кино взрослеет и экспериментирует","Аудитория разделяется по вкусам","Новые форматы продвижения"],en:["Cinema matures and experiments","Audience segments","New marketing approaches"]} },
+  blockbuster:{ title:{ru:"Эра блокбастеров (1980–2000-е)",en:"Blockbuster era (1980s–2000s)"}, text:{ru:"Франшизы, мерч, международный прокат. Спецэффекты — ключ к зрителю.",en:"Franchises, merchandising, global distribution. Effects drive audiences."}, bullets:{ru:["Франшизы и продолжения","Глобальный маркетинг","Рост роли спецэффектов"],en:["Franchises and sequels","Global marketing","Rise of visual effects"]}, changes:{ru:["Бюджеты растут, риск повышается","Ставка на узнаваемые бренды","Цифровой пост-продакшн"],en:["Bigger budgets and risk","Known IP becomes safer bet","Digital post-production grows"]} },
+  streaming:{ title:{ru:"Стриминг и виртуальные съёмки (2010-е — сейчас)",en:"Streaming & virtual production (2010s–now)"}, text:{ru:"Онлайн-платформы меняют потребление. Технологии быстрее и дешевле.",en:"Streaming reshapes consumption. Technology is faster and cheaper."}, bullets:{ru:["Онлайн-релизы и гибридные модели","Международные команды и локации","LED-павильоны и real-time VFX"],en:["Online releases and hybrid windows","International crews and locations","LED stages and real-time VFX"]}, changes:{ru:["Новая конкуренция за внимание","Больше контента, выше планка качества","Кино, сериалы и онлайн смешиваются"],en:["New competition for attention","More content, higher quality bar","Film, series, and online blend"]} }
 };
 
 function renderHistory(era){ const panel=$("#historyPanel"),data=HISTORY[era]; if(!panel||!data)return;
@@ -980,13 +885,13 @@ function initHistoryTabs(){ const tabs=$$(".tab"); if(!tabs.length)return;
 }
 
 const EXPLORE_DATA=[
-  {id:"f_godfather",type:"film",era:"new",year:1972,title:{ru:"Крёстный отец",en:"The Godfather"},meta:{ru:"Криминальная драма • 1972",en:"Crime drama • 1972"},text:{ru:"Один из символов «Нового Голливуда».",en:"A landmark of New Hollywood."},tags:["new","classic","cinema"]},
-  {id:"f_la_la_land",type:"film",era:"modern",year:2016,title:{ru:"Ла-Ла Ленд",en:"La La Land"},meta:{ru:"Мюзикл/романтика • 2016",en:"Musical/Romance • 2016"},text:{ru:"Современное признание в любви Голливуду.",en:"A modern love letter to Hollywood."},tags:["modern","music","la"]},
-  {id:"f_singin",type:"film",era:"classic",year:1952,title:{ru:"Поющие под дождём",en:"Singin' in the Rain"},meta:{ru:"Классический мюзикл • 1952",en:"Classic musical • 1952"},text:{ru:"Культовая классика о переходе к звуковому кино.",en:"A classic about the transition to talkies."},tags:["classic","music"]},
-  {id:"s_paramount",type:"studio",era:"classic",year:1912,title:{ru:"Paramount Pictures",en:"Paramount Pictures"},meta:{ru:"Студия • основана 1912",en:"Studio • founded 1912"},text:{ru:"Одна из старейших крупных студий.",en:"A major legacy studio."},tags:["studio","classic"]},
-  {id:"s_warner",type:"studio",era:"classic",year:1923,title:{ru:"Warner Bros.",en:"Warner Bros."},meta:{ru:"Студия • основана 1923",en:"Studio • founded 1923"},text:{ru:"Одна из крупнейших студий с огромным портфелем.",en:"A major studio with a wide portfolio."},tags:["studio","classic","modern"]},
-  {id:"p_chaplin",type:"person",era:"classic",year:1889,title:{ru:"Чарли Чаплин",en:"Charlie Chaplin"},meta:{ru:"Актёр/режиссёр • немое кино",en:"Actor/Director • silent era"},text:{ru:"Символ раннего кино и поп-культуры.",en:"A defining figure of early cinema."},tags:["classic","silent"]},
-  {id:"p_hitchcock",type:"person",era:"classic",year:1899,title:{ru:"Альфред Хичкок",en:"Alfred Hitchcock"},meta:{ru:"Режиссёр • триллеры",en:"Director • thrillers"},text:{ru:"Мастер саспенса и визуального языка.",en:"Known for suspense and visual storytelling."},tags:["classic","director"]}
+  {id:"f_godfather",type:"film",era:"new",year:1972,title:{ru:"Крёстный отец",en:"The Godfather"},meta:{ru:"Криминальная драма • 1972",en:"Crime drama • 1972"},text:{ru:"Один из главных фильмов эпохи Нового Голливуда.",en:"A landmark of the New Hollywood era."},tags:["drama","classic"]},
+  {id:"f_la_la_land",type:"film",era:"modern",year:2016,title:{ru:"Ла-Ла Ленд",en:"La La Land"},meta:{ru:"Мюзикл • 2016",en:"Musical • 2016"},text:{ru:"Современное признание в любви Голливуду и мечтам о кино.",en:"A modern love letter to Hollywood and the dream of cinema."},tags:["modern","musical"]},
+  {id:"f_singin",type:"film",era:"classic",year:1952,title:{ru:"Поющие под дождём",en:"Singin' in the Rain"},meta:{ru:"Мюзикл • 1952",en:"Musical • 1952"},text:{ru:"Культовая классика о переходе от немого кино к звуковому.",en:"A classic about the transition from silent films to talkies."},tags:["classic","musical"]},
+  {id:"s_paramount",type:"studio",era:"classic",year:1912,title:{ru:"Paramount Pictures",en:"Paramount Pictures"},meta:{ru:"Основана в 1912",en:"Founded 1912"},text:{ru:"Одна из старейших и крупнейших студий Голливуда.",en:"One of the oldest and biggest Hollywood studios."},tags:["studio","classic"]},
+  {id:"s_warner",type:"studio",era:"classic",year:1923,title:{ru:"Warner Bros.",en:"Warner Bros."},meta:{ru:"Основана в 1923",en:"Founded 1923"},text:{ru:"Крупнейшая студия с огромным жанровым портфелем.",en:"A major studio with a vast genre portfolio."},tags:["studio","classic"]},
+  {id:"p_chaplin",type:"person",era:"classic",year:1889,title:{ru:"Чарли Чаплин",en:"Charlie Chaplin"},meta:{ru:"Актёр и режиссёр",en:"Actor & Director"},text:{ru:"Символ раннего кино и мировой поп-культуры.",en:"A defining figure of early cinema and global pop culture."},tags:["classic","silent"]},
+  {id:"p_hitchcock",type:"person",era:"classic",year:1899,title:{ru:"Альфред Хичкок",en:"Alfred Hitchcock"},meta:{ru:"Режиссёр",en:"Director"},text:{ru:"Мастер саспенса и визуального повествования.",en:"Master of suspense and visual storytelling."},tags:["classic","thriller"]}
 ];
 
 const badgeLabel=type=>({film:{ru:"Фильм",en:"Film"},studio:{ru:"Студия",en:"Studio"},person:{ru:"Персона",en:"Person"}}[type]?.[currentLang]||type);
@@ -1036,14 +941,14 @@ const game=(()=>{
   let lang=currentLang,index=0,score=0,answered=false;
   const rounds={
     en:[{q:"A sidewalk with thousands of star plaques.",correct:"walk",options:["walk","tcl","observatory","museum"]},{q:"A famous theatre with celebrity handprints.",correct:"tcl",options:["tcl","walk","studios","sign"]},{q:"The iconic sign best seen from viewpoints.",correct:"sign",options:["sign","museum","walk","tcl"]},{q:"Space exhibits and amazing views over LA.",correct:"observatory",options:["observatory","studios","walk","museum"]},{q:"A modern museum dedicated to cinema history.",correct:"museum",options:["museum","walk","tcl","sign"]}],
-    ru:[{q:"Тротуар с тысячами звёзд-табличек.",correct:"walk",options:["walk","tcl","observatory","museum"]},{q:"Кинотеатр с отпечатками рук знаменитостей.",correct:"tcl",options:["tcl","walk","studios","sign"]},{q:"Легендарная надпись, рядом смотровые точки.",correct:"sign",options:["sign","museum","walk","tcl"]},{q:"Выставки про космос и панорама Лос-Анджелеса.",correct:"observatory",options:["observatory","studios","walk","museum"]},{q:"Современный музей, посвящённый истории кино.",correct:"museum",options:["museum","walk","tcl","sign"]}]
+    ru:[{q:"Тротуар с тысячами звёзд-табличек.",correct:"walk",options:["walk","tcl","observatory","museum"]},{q:"Кинотеатр с отпечатками рук знаменитостей.",correct:"tcl",options:["tcl","walk","studios","sign"]},{q:"Легендарная надпись, рядом смотровые площадки.",correct:"sign",options:["sign","museum","walk","tcl"]},{q:"Выставки про космос и панорама Лос-Анджелеса.",correct:"observatory",options:["observatory","studios","walk","museum"]},{q:"Современный музей, посвящённый истории кино.",correct:"museum",options:["museum","walk","tcl","sign"]}]
   };
   const placeName=id=>t(PLACES[id].titleKey);
   function hideFinish(){const box=$("#gameCelebrate");if(box)box.hidden=true;}
   function showFinish(){const box=$("#gameCelebrate");if(!box)return; $("#gameCelebrateBadge").textContent=t("game.finish.badge"); $("#gameCelebrateTitle").textContent=t("game.finish.title"); $("#gameCelebrateText").textContent=t("game.finish.text",{s:score}); $("#gamePlayAgain").textContent=t("game.finish.again"); $("#gameToQuiz").textContent=t("game.finish.toQuiz"); box.hidden=false; launchConfetti(box,1600);}
   function render(){const data=rounds[lang],r=data[index]; if($("#gameRound"))$("#gameRound").textContent=`${index+1}/${data.length}`; if($("#gameScore"))$("#gameScore").textContent=(lang==="ru"?`Счёт: ${score}`:`Score: ${score}`); if($("#gameQuestion"))$("#gameQuestion").textContent=r.q; const box=$("#gameAnswers");if(!box)return; if($("#gameHint"))$("#gameHint").textContent=""; box.innerHTML="";answered=false;hideFinish(); r.options.forEach(opt=>{const btn=document.createElement("button");btn.type="button";btn.className="ganswer";btn.textContent=placeName(opt);btn.addEventListener("click",()=>choose(opt));box.appendChild(btn);}); if($("#gameNext"))$("#gameNext").disabled=true;}
-  function choose(opt){if(answered)return;answered=true;const data=rounds[lang],r=data[index];const buttons=$$(".ganswer",$("#gameAnswers"));buttons.forEach(b=>b.disabled=true);if(opt===r.correct)score++;buttons.forEach(b=>{if(b.textContent===placeName(r.correct))b.classList.add("is-correct");if(b.textContent===placeName(opt)&&opt!==r.correct)b.classList.add("is-wrong");}); focusPlace(opt,true); const hint=(opt===r.correct)?(lang==="ru"?"✅ Верно! Карта сфокусировалась.":"✅ Correct! Map focused."):(lang==="ru"?`❌ Неверно. Правильный ответ: ${placeName(r.correct)}.`:`❌ Not quite. Correct: ${placeName(r.correct)}.`); if($("#gameHint"))$("#gameHint").textContent=hint; if($("#gameNext"))$("#gameNext").disabled=false; if($("#gameScore"))$("#gameScore").textContent=(lang==="ru"?`Счёт: ${score}`:`Score: ${score}`);}
-  function next(){const data=rounds[lang];if(index<data.length-1){index++;render();}else{if($("#gameHint"))$("#gameHint").textContent=(lang==="ru")?`Игра окончена! Итог: ${score}/${data.length}.`:`Game finished! Score: ${score}/${data.length}.`;if($("#gameNext"))$("#gameNext").disabled=true;showFinish();}}
+  function choose(opt){if(answered)return;answered=true;const data=rounds[lang],r=data[index];const buttons=$$(".ganswer",$("#gameAnswers"));buttons.forEach(b=>b.disabled=true);if(opt===r.correct)score++;buttons.forEach(b=>{if(b.textContent===placeName(r.correct))b.classList.add("is-correct");if(b.textContent===placeName(opt)&&opt!==r.correct)b.classList.add("is-wrong");}); focusPlace(opt,true); const hint=(opt===r.correct)?(lang==="ru"?"✅ Верно!":"✅ Correct!"):(lang==="ru"?`❌ Неверно. Ответ: ${placeName(r.correct)}`:`❌ Wrong. Answer: ${placeName(r.correct)}`); if($("#gameHint"))$("#gameHint").textContent=hint; if($("#gameNext"))$("#gameNext").disabled=false; if($("#gameScore"))$("#gameScore").textContent=(lang==="ru"?`Счёт: ${score}`:`Score: ${score}`);}
+  function next(){const data=rounds[lang];if(index<data.length-1){index++;render();}else{if($("#gameHint"))$("#gameHint").textContent=(lang==="ru")?`Итог: ${score}/${data.length}`:`Final: ${score}/${data.length}`;if($("#gameNext"))$("#gameNext").disabled=true;showFinish();}}
   function restart(){index=0;score=0;answered=false;render();if($("#gameNext"))$("#gameNext").disabled=true;}
   function init(){$("#gameNext")?.addEventListener("click",next);$("#gameRestart")?.addEventListener("click",restart);$("#gamePlayAgain")?.addEventListener("click",restart);render();}
   function setLang(newLang){lang=newLang==="en"?"en":"ru";restart();}
@@ -1053,14 +958,14 @@ const game=(()=>{
 const quiz=(()=>{
   let lang=currentLang;
   const DATA={
-    en:[{q:"What is Hollywood most famous for?",a:["Beaches","Film industry","Ski resorts","Deserts"],correct:1,hint:"Studios, movies and celebrities."},{q:"What is the Walk of Fame?",a:["A mountain trail","A street with star plaques","A museum","A theme park"],correct:1,hint:"Hollywood Boulevard sidewalk."},{q:"The Hollywood Sign originally said…",a:["HOLLYWOOD","HOLLYWOODLAND","LA LAND","MOVIELAND"],correct:1,hint:"Real estate ad."},{q:"Which place is known for celebrity handprints?",a:["TCL Chinese Theatre","Griffith Park","LAX","Union Station"],correct:0,hint:"Famous forecourt."},{q:"Griffith Observatory is famous for…",a:["Space exhibits and views","Aquariums","Surf lessons","Ski lifts"],correct:0,hint:"Panorama + astronomy."}],
-    ru:[{q:"Чем больше всего знаменит Голливуд?",a:["Пляжами","Киноиндустрией","Горнолыжными курортами","Пустынями"],correct:1,hint:"Студии, фильмы, звёзды."},{q:"Что такое Аллея славы?",a:["Горная тропа","Улица со звёздами на тротуаре","Музей","Парк аттракционов"],correct:1,hint:"Тротуар на Hollywood Boulevard."},{q:"Изначально надпись на знаке была…",a:["HOLLYWOOD","HOLLYWOODLAND","LA LAND","MOVIELAND"],correct:1,hint:"Реклама недвижимости."},{q:"Где отпечатки рук знаменитостей?",a:["TCL Chinese Theatre","Griffith Park","LAX","Union Station"],correct:0,hint:"Культовый дворик."},{q:"Чем известна обсерватория Гриффита?",a:["Космосом и видами","Аквариумами","Уроками сёрфинга","Подъёмниками"],correct:0,hint:"Панорама + астрономия."}]
+    en:[{q:"What is Hollywood most famous for?",a:["Beaches","Film industry","Ski resorts","Deserts"],correct:1,hint:"Studios, movies, and celebrities."},{q:"What is the Walk of Fame?",a:["A mountain trail","A street with star plaques","A museum","A theme park"],correct:1,hint:"Hollywood Boulevard sidewalk."},{q:"The Hollywood Sign originally said…",a:["HOLLYWOOD","HOLLYWOODLAND","LA LAND","MOVIELAND"],correct:1,hint:"It was a real estate ad."},{q:"Which place has celebrity handprints?",a:["TCL Chinese Theatre","Griffith Park","LAX","Union Station"],correct:0,hint:"Famous forecourt."},{q:"Griffith Observatory is known for…",a:["Space exhibits and views","Aquariums","Surf lessons","Ski lifts"],correct:0,hint:"Panorama and astronomy."}],
+    ru:[{q:"Чем знаменит Голливуд?",a:["Пляжами","Киноиндустрией","Горнолыжными курортами","Пустынями"],correct:1,hint:"Студии, фильмы, звёзды."},{q:"Что такое Аллея славы?",a:["Горная тропа","Улица со звёздами на тротуаре","Музей","Парк аттракционов"],correct:1,hint:"Тротуар на Hollywood Boulevard."},{q:"Изначально на знаке было написано…",a:["HOLLYWOOD","HOLLYWOODLAND","LA LAND","MOVIELAND"],correct:1,hint:"Реклама жилого района."},{q:"Где находятся отпечатки рук знаменитостей?",a:["TCL Chinese Theatre","Griffith Park","LAX","Union Station"],correct:0,hint:"Культовый дворик."},{q:"Чем известна обсерватория Гриффита?",a:["Космосом и панорамой","Аквариумами","Сёрфингом","Подъёмниками"],correct:0,hint:"Панорама и астрономия."}]
   };
   let index=0,score=0,picked=new Map();
   function hideFinish(){const box=$("#quizCelebrate");if(box)box.hidden=true;}
   function showFinish(){const box=$("#quizCelebrate");if(!box)return; $("#quizCelebrateBadge").textContent=t("quiz.finish.badge"); $("#quizCelebrateTitle").textContent=t("quiz.finish.title"); $("#quizCelebrateText").textContent=t("quiz.finish.text",{s:score}); $("#quizTryAgain").textContent=t("quiz.finish.retry"); $("#quizToMap").textContent=t("quiz.finish.toMap"); box.hidden=false; launchConfetti(box,1700);}
   function render(){const elQ=$("#quizQuestion"),elA=$("#quizAnswers"),elStep=$("#quizStep"),elScore=$("#quizScore"),elHint=$("#quizHint"),elBar=$("#quizBar"); if(!elQ||!elA||!elStep||!elScore||!elHint||!elBar)return; const items=DATA[lang],item=items[index]; elQ.textContent=item.q;elA.innerHTML=""; elStep.textContent=`${index+1}/${items.length}`; elScore.textContent=(lang==="ru"?`Счёт: ${score}`:`Score: ${score}`); elHint.textContent=""; elBar.style.width=`${items.length>1?(index/(items.length-1))*100:0}%`; const already=picked.get(index); item.a.forEach((txt,i)=>{const btn=document.createElement("button");btn.type="button";btn.className="answer";btn.textContent=txt;if(already!=null){if(i===item.correct)btn.classList.add("is-correct");if(i===already&&already!==item.correct)btn.classList.add("is-wrong");btn.disabled=true;}btn.addEventListener("click",()=>chooseQuiz(i));elA.appendChild(btn);}); if($("#quizPrev"))$("#quizPrev").disabled=index===0; if($("#quizNext"))$("#quizNext").disabled=index===items.length-1; if(index===items.length-1&&already!=null)showFinish();else hideFinish();}
-  function chooseQuiz(i){const items=DATA[lang],item=items[index];if(picked.has(index))return;picked.set(index,i);if(i===item.correct)score++; const hint=(i===item.correct)?(lang==="ru"?"✅ Верно!":"✅ Correct!"):(lang==="ru"?`❌ Неверно. Подсказка: ${item.hint}`:`❌ Not quite. Hint: ${item.hint}`); if($("#quizHint"))$("#quizHint").textContent=hint; if(index===items.length-1){render();showFinish();}else render();}
+  function chooseQuiz(i){const items=DATA[lang],item=items[index];if(picked.has(index))return;picked.set(index,i);if(i===item.correct)score++; const hint=(i===item.correct)?(lang==="ru"?"✅ Верно!":"✅ Correct!"):(lang==="ru"?`❌ Неверно. ${item.hint}`:`❌ Wrong. ${item.hint}`); if($("#quizHint"))$("#quizHint").textContent=hint; if(index===items.length-1){render();showFinish();}else render();}
   function next(){if(index<DATA[lang].length-1){index++;render();}}
   function prev(){if(index>0){index--;render();}}
   function restart(){index=0;score=0;picked=new Map();if($("#quizBar"))$("#quizBar").style.width="0%";hideFinish();render();}
@@ -1112,3 +1017,4 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 </body>
 </html>
+
